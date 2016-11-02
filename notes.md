@@ -37,3 +37,9 @@ This documentation should be supplied in every sprint report (where applicable).
     - PHP :(
   
 
+## Log #####################
+
+  * 02/11 Inital meetup
+    - Set up github
+    - Set up trello
+    - Linked trello and github
