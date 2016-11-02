@@ -1,0 +1,39 @@
+# D0018E Notes #############
+
+## Deadlines ###############
+
+  * Sprint 1 – Friday, Nov 11
+  * Sprint 2 – Friday, Nov 25
+  * Sprint 3 – Friday, Dec 9-15 TBD
+  * Sprint 4 – Friday, Jan 3 ? TBD (final demo)
+
+
+## Documentation ###########
+
+This documentation should be supplied in every sprint report (where applicable).
+
+  * Executive summary
+  * User stories (different roles), use-cases, requirements, assumptions.
+  * System architecture description and overview of the implementation.
+  * Current backlog.
+  * A database schema (E-R diagram) with descriptions, identification of keys etc.
+  * Links to code (i.e., your teacher should be able to check the code).
+  * Test case specifications
+  * A description of the system's limitations and the possibilities for improvements.
+
+
+## Tools ###################
+
+  * Scrum
+    - Trello
+  * DB
+    - [OK] MariaDB 
+     - Reason: MariaDB seems like a much more fresh alternative to MySQL. Also Oraqle's stewardship seems more and more shaky.
+    - MySQL
+  * Frontend
+    - NodeJS?
+    - Python/Django
+    - Ruby on Rails
+    - PHP :(
+  
+
