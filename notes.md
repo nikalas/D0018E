@@ -2,10 +2,10 @@
 
 ## Deadlines ###############
 
-  * Sprint 1 – Friday, Nov 11
-  * Sprint 2 – Friday, Nov 25
-  * Sprint 3 – Friday, Dec 9-15 TBD
-  * Sprint 4 – Friday, Jan 3 ? TBD (final demo)
+  * Sprint 1 – Friday, Nov 11
+  * Sprint 2 – Friday, Nov 25
+  * Sprint 3 – Friday, Dec 9-15 TBD
+  * Sprint 4 – Friday, Jan 3 ? TBD (final demo)
 
 
 ## Documentation ###########
