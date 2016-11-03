@@ -12,14 +12,14 @@
 
 This documentation should be supplied in every sprint report (where applicable).
 
-  * Executive summary
-  * User stories (different roles), use-cases, requirements, assumptions.
-  * System architecture description and overview of the implementation.
-  * Current backlog.
-  * A database schema (E-R diagram) with descriptions, identification of keys etc.
-  * Links to code (i.e., your teacher should be able to check the code).
-  * Test case specifications
-  * A description of the system's limitations and the possibilities for improvements.
+ Executive summary
+ User stories (different roles), use-cases, requirements, assumptions.
+ System architecture description and overview of the implementation.
+ Current backlog.
+ A database schema (E-R diagram) with descriptions, identification of keys etc.
+ Links to code (i.e., your teacher should be able to check the code).
+ Test case specifications
+ A description of the system's limitations and the possibilities for improvements.
 
 
 ## Tools ###################
@@ -49,3 +49,5 @@ This documentation should be supplied in every sprint report (where applicable).
     - Set up VMs
     - Set up MariaDB
     - Set up nginx
+    - Made initial user stories
+    - Initial design mockup
