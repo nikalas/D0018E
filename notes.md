@@ -45,3 +45,7 @@ This documentation should be supplied in every sprint report (where applicable).
     - Set up trello
     - Linked trello and github
     - Decided on RoR and MariaDB and self hosted (somehow)
+  * 03/11 Server setup and planning day
+    - Set up VMs
+    - Set up MariaDB
+    - Set up nginx
