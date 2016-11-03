@@ -33,7 +33,8 @@ This documentation should be supplied in every sprint report (where applicable).
   * Frontend
     - NodeJS?
     - Python/Django
-    - Ruby on Rails
+    - [ok] Ruby on Rails
+      - Reason: Younger and more active community and resources.
     - PHP :(
   
 
@@ -43,3 +44,4 @@ This documentation should be supplied in every sprint report (where applicable).
     - Set up github
     - Set up trello
     - Linked trello and github
+    - Decided on RoR and MariaDB and self hosted (somehow)
