@@ -1,0 +1,22 @@
+Användare
+	Butiksadministratör
+		r/w priser
+		r/w kampanjer
+		r/w lagerstatus
+		r/w kategorier
+		r leveransstatus
+		r kundinfo
+	Lagerarbetare
+		r/w lagerstatus
+		r/w leveransstatus
+		r kundinfo
+	Inloggad kund
+		r/w sin egen kontaktinformation
+		läsa sin egen orderhistorik
+		läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+		lägga ordrar
+		? Spara/skicka kundkorg
+	Ej inloggad kund
+		läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+		lägga ordrar
+		? skicka kundkorg (e-post)
