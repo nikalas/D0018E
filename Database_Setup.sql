@@ -4,16 +4,16 @@ USE D0018E_Webshop;
 
 CREATE TABLE Category
 (
-	id 		smallint 	NOT NULL,
+	id 		smallint 	NOT NULL AUTO_INCREMENT,
 	name 	varchar 	NOT NULL,
 	parent 	smallint,
 	PRIMARY KEY (id),
-	FOREIGN KEY (parent) REFERENCES Category(id)
+	--FOREIGN KEY (parent) REFERENCES Category(id)
 );
 
 CREATE TABLE Product
 (
-	id 				smallint 	NOT NULL,
+	id 				smallint 	NOT NULL AUTO_INCREMENT,
 	name 			varchar 	NOT NULL,
 	description 	varchar,
 	picture 		varchar,
@@ -26,7 +26,7 @@ CREATE TABLE Product
 
 CREATE TABLE Campain
 (
-	id 			smallint 	NOT NULL,
+	id 			smallint 	NOT NULL AUTO_INCREMENT,
 	start_date 	timestamp 	DEFAULT GETDATE(),
 	end_date 	timestamp,
 	picture 	varchar,
@@ -44,7 +44,7 @@ CREATE TABLE CampainProducts
 
 CREATE TABLE Customer
 (
-	id 			smallint 	NOT NULL,
+	id 			smallint 	NOT NULL AUTO_INCREMENT,
 	name 		varchar,
 	p_nr 		char(11),
 	adress 		varchar,
@@ -57,7 +57,7 @@ CREATE TABLE Customer
 
 CREATE TABLE ShoppingCart
 (
-	id 			smallint 	NOT NULL,
+	id 			smallint 	NOT NULL AUTO_INCREMENT,
 	products 	varchar,
 	customer 	smallint,
 	PRIMARY KEY (id),
@@ -66,7 +66,7 @@ CREATE TABLE ShoppingCart
 
 CREATE TABLE Delivery
 (
-	id 			smallint 	NOT NULL,
+	id 			smallint 	NOT NULL AUTO_INCREMENT,
 	customer 	smallint,
 	adress 		varchar 	NOT NULL,
 	payed 		boolean 	NOT NULL 	DEFAULT false, 
