@@ -51,3 +51,11 @@ This documentation should be supplied in every sprint report (where applicable).
     - Set up nginx
     - Made initial user stories
     - Initial design mockup
+  * 08/11 DB-design meetup
+    - Set up DB-design
+    - Decided on SCRUM workflow in trello
+    - Started Trello refactoring
+    - Added the report LaTeX-file to the repository
+  * 09/11 Backlog meeting
+    - Made Scrum stories for the backlog
+    - Decided on DB naming conventions. ´CamelCase´ for tables and ´snake_case´ for attributes.
