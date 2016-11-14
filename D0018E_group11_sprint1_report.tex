@@ -71,24 +71,98 @@
 
 %------------------------------------------------
 
-\subsection{Summary}
+%\subsection{Summary}
 
 \subsection{User stories}
+	Användare
+	\begin{itemize}
+		\item Butiksadministratör
+		\begin{itemize}
+			\item r/w priser
+			\item r/w kampanjer
+			\item r/w lagerstatus
+			\item r/w kategorier
+			\item r leveransstatus
+			\item r kundinfo
+		\end{itemize}
+		\item Lagerarbetare
+		\begin{itemize}
+			\item r/w lagerstatus
+			\item r/w leveransstatus
+			\item r kundinfo
+		\end{itemize}
+		\item Inloggad kund
+		\begin{itemize}
+			\item r/w sin egen kontaktinformation
+			\item läsa sin egen orderhistorik
+			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+			\item lägga ordrar
+			\item ? Spara/skicka kundkorg
+		\end{itemize}
+		\item Ej inloggad kund
+		\begin{itemize}
+			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+			\item lägga ordrar
+			\item ? skicka kundkorg (e-post)
+		\end{itemize}
+
+	See Figure \ref{fig:1} - \ref{fig:4}
+
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/Inventory+Users.jpeg}
+		\caption{}
+		\label{fig:1}
+	\end{figure}
+	
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/Lager.jpeg}
+		\caption{}
+		\label{fig:2}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/ButiksAdmin.jpeg}
+		\caption{}
+		\label{fig:3}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/Admin.jpeg}
+		\caption{}
+		\label{fig:4}
+	\end{figure}
 
 \subsection{System architecture}
+	We use a MariaDB database and a NGINX webserver with Phusion Passenger for Ruby on Rails. We host the servers ourselves because it seemed seemed fun and fairly simple. 
 
 \subsection{Backlog}
+	Planing is done at Trello.com
+	\url{https://trello.com/b/JxDCHBcm}
 
-\subsection{Database schema}
+	See Figure \ref{fig:5}
+
+	\begin{figure}
+		\includegraphics[scale=0.4]{artifacts/Trello_Sprint1.png}
+		\caption{}
+		\label{fig:5}
+	\end{figure}
+
+\subsection{Database schema}	
+	See Figure \ref{fig:6}
+	\begin{figure}
+		\includegraphics[scale=0.13]{artifacts/DB-design.jpg}
+		\caption{Database design. Minor changes might have been made. See original paper copy for updated version.}
+		\label{fig:6}
+	\end{figure}
 
 \subsection{Code}
-All code is avalible at github.
-\url{https://github.com/nikalas/D0018E-Databasteknik.git}
+	All code is avalible at github.
+	\url{https://github.com/nikalas/D0018E-Databasteknik.git}
 
-\subsection{Test case specifications}
+%\subsection{Test case specifications}
 
 \subsection{Limitations and improvements}
 
-We decided to put off saving payment methods and/or information.
+	We decided to put off saving payment methods and/or information. Might end up readding it to the backlog if it looks like we will have time to spare. 
 
 \end{document}
