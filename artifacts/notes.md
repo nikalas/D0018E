@@ -36,7 +36,8 @@ This documentation should be supplied in every sprint report (where applicable).
     - [ok] Ruby on Rails
       - Reason: Younger and more active community and resources.
     - PHP :(
-  
+### Rails:
+  * [Devise](https://github.com/plataformatec/devise)
 
 ## Log #####################
 
