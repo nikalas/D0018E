@@ -1,13 +1,42 @@
-rails generate scaffold Customer name:string p_nr:string adress:string zip:integer city:string email:string phone_nr:string password:string picture:string
+rails generate scaffold Customer \
+  first_name:string \
+  surname:string \
+  p_nr:string \
+  adress:string \
+  zip:integer \
+  city:string \
+  email:string \
+  phone_nr:string \
+  password:string \
+  picture:string
 
-rails generate scaffold Cart products:text customer:references
+rails generate scaffold Cart \
+  products_json:text \
+  customer:references
 
-rails generate scaffold Delivery customer:references cart:references adress:string zip:integer city:string payed:boolean shipped:boolean order_date:boolean
+rails generate scaffold Delivery \
+  customer:references \
+  cart:references \
+  payed_for:boolean \
+  shipped:boolean \
 
-rails generate scaffold Category name:string parent:integer
+rails generate scaffold Category \
+  name:string \
+  parent:integer
 
-rails generate scaffold Product name:string description:text picture:string category:references price:float stock:integer
+rails generate scaffold Product \
+  name:string \
+  description:text \
+  picture:string \
+  category:references \
+  price:float \
+  stock:integer
 
-rails generate scaffold Sale start_date:datetime end_date:datetime picture:string
+rails generate scaffold Sale \
+  start_date:datetime \
+  end_date:datetime \
+  picture:string
 
-rails generate scaffold SalesProducts sale:references product:references
+rails generate scaffold SalesProducts \
+  sale:references \
+  product:references
