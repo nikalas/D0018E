@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'frontend_pages/index'
+  root 'frontend_pages#index'
 
   get 'frontend_pages/product'
 
