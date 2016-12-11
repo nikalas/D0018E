@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start_date: 2016-11-25 02:56:14
-  end_date: 2016-11-25 02:56:14
+  start_date: 2016-12-01 01:50:04
+  end_date: 2016-12-01 01:50:04
   picture: MyString
 
 two:
-  start_date: 2016-11-25 02:56:14
-  end_date: 2016-11-25 02:56:14
+  start_date: 2016-12-01 01:50:04
+  end_date: 2016-12-01 01:50:04
   picture: MyString

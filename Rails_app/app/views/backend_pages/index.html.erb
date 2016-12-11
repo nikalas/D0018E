@@ -1,4 +1,24 @@
 <% provide(:title, "Admin") %>
 <h1><%= yield(:title) %></h1>
 <p><strong>Det här är indexsidan för admins. Välkommen!</strong></p>
+<ul>
+<li>
+            <%= link_to 'Products', products_path %>
+          </li>
+          <li>
+            <%= link_to 'Carts', carts_path %>
+          </li>
+          <li>
+            <%= link_to 'Categories', categories_path %>
+          </li>
+          <li>
+            <%= link_to 'Customers', customers_path %>
+          </li>
+          <li>
+            <%= link_to 'Deliveries', deliveries_path %>
+          </li>
+          <li>
+            <%= link_to 'Sales', sales_path %>
+            </li>
 
+</ul>
