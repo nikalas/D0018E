@@ -53,9 +53,9 @@
         <ul class="nav nav-sidebar">
           <!-- TODO: testing dynamic menu, move this out as well? -->
           <% @categories.each do |category| %>
-            <% unless category.id == 0 %>
+                <% unless category.id == 1 then %>
               <li>
-                <%= link_to category.name, category %>
+                  <%= link_to category.name, category %>
               </li>
             <% end %>
           <% end %>
