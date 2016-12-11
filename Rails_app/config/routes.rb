@@ -1,19 +1,13 @@
 Rails.application.routes.draw do
-  get 'frontend_pages/index'
+  root 'frontend_pages#index'
 
-  get 'frontend_pages/product'
-
-  get 'frontend_pages/user'
-
-  get 'frontend_pages/order'
-
-  get 'frontend_pages/customer_cart'
-
-  get 'frontend_pages/sing_up'
-
-  get 'frontend_pages/sign_in'
-
-  get 'backend_pages/index'
+  get '/product', to: 'frontend_pages#product'
+  get '/user',    to: 'frontend_pages#user'
+  get '/order',   to: 'frontend_pages#order'
+  get '/cart',    to: 'frontend_pages#customer_cart'
+  get '/sing_up', to: 'frontend_pages#sing_up'
+  get '/sign_in', to: 'frontend_pages#sign_in'
+  get '/admin',   to: 'backend_pages#index'
 
   resources :sales_products
   resources :sales

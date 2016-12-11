@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsApp</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>
+    <%= full_title(yield(:title)) %>
+  </title>
+  <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-	
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<body>
+
+  <!-- TODO: Refactor and move entire navbar to partial _navbar? -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-		  <h2><%= link_to "Adminbackend", '../backend_pages/index', id: "logo" %></h2>
-		</div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Placeholder</a></li>
-            <li><a href="#">Placeholder</a></li>
-            <li><a href="#">Placeholder</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
+        <h2>
+          <%= link_to "Patches-N-Stuff", root_path, id: "logo" %>
+        </h2>
       </div>
-    </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-		    <li>
-                <%= link_to 'Products', products_path %>
-            </li>
-		    <li>
-                <%= link_to 'Carts', carts_path %>
-			</li>
-			<li>
-                <%= link_to 'Categories', categories_path %>
-			</li>
-			<li>
-                <%= link_to 'Customers', customers_path %>
-			</li>
-			<li>
-                <%= link_to 'Deliveries', deliveries_path %>
-			</li>
-			<li>
-                <%= link_to 'Sales', sales_path %>
-			</ul>
-		</nav>
-
-            </li>
-		  </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <%= yield %>
-        </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Inköpslista", '/cart' %>
+          </li>
+          <li>
+            <%= link_to "Information", root_path %>
+          </li>
+          <!-- TODO: Give proper path -->
+          <li>
+            <%= link_to "Checka ut", '/order' %>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
       </div>
     </div>
-  </body>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <!-- TODO: testing dynamic menu, move this out as well? -->
+          <% @categories.each do |category| %>
+            <% unless category.id == 0 %>
+              <li>
+                <%= link_to category.name, category %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <!--li>
+            <%= link_to 'Products', products_path %>
+          </li>
+          <li>
+            <%= link_to 'Carts', carts_path %>
+          </li>
+          <li>
+            <%= link_to 'Categories', categories_path %>
+          </li>
+          <li>
+            <%= link_to 'Customers', customers_path %>
+          </li>
+          <li>
+            <%= link_to 'Deliveries', deliveries_path %>
+          </li>
+          <li>
+            <%= link_to 'Sales', sales_path %>
+            -->
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
