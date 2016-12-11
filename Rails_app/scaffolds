@@ -22,7 +22,7 @@ rails generate scaffold Delivery \
 
 rails generate scaffold Category \
   name:string \
-  parent:integer
+  parent_id:integer
 
 rails generate scaffold Product \
   name:string \
