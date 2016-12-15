@@ -1,2 +1,4 @@
-<h1>FrontendPages#index</h1>
-<p>Find me in app/views/frontend_pages/index.html.erb</p>
+<% @products.each do |product| %>
+  <%= link_to image_tag(product.picture, :alt => product.name), product_path(product), title: product.name %>
+  <%#= product.name %>
+<% end %>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'frontend_pages#sign_in'
   get '/admin',   to: 'backend_pages#index'
 
+
+
   resources :sales_products
   resources :sales
   resources :products
@@ -16,5 +18,8 @@ Rails.application.routes.draw do
   resources :deliveries
   resources :carts
   resources :customers
+
+  resources :product
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

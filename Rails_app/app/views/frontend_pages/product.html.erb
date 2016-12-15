@@ -1,4 +1,10 @@
-<% provide(:title, "Produkt") %>
-<p>TODO: sätt den faktiska produkten som titel på sidan</p>
-<h1>FrontendPages#product</h1>
-<p>Find me in app/views/frontend_pages/product.html.erb</p>
+<% provide(:title, @product.name) %>
+<h1><%= @product.name %></h1>
+
+<%= image_tag(@product.picture) %>
+
+
+<p>Pris: <%= @product.price %> </p>
+<p>Lagerstatus: <%= @product.stock %> </p>
+
+<p><%= @product.description %> </p>
