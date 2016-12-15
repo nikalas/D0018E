@@ -1,0 +1,205 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{report} % A4 paper and 11pt font size
+
+\usepackage[swedish, english]{babel} % Swedish and English language/hyphenation
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\usepackage{titlesec}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\fancyhead[L]{Niklas Eliasson, Victor Persson}
+\fancyhead[R]{Luleå Tekniska Universitet}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\textsc{Luleå Tekniska Universitet} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{1pt} \\[0.4cm] % top horizontal rule
+\huge Sprint 3 \\ % The assignment title
+\horrule{1pt} \\[0.5cm] % bottom horizontal rule
+}
+
+\author{Victor Persson,\\ Niklas Eliasson} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\maketitle % Print the title
+
+\tableofcontents
+\thispagestyle{empty}
+\sectionfont{\scshape}
+%
+\newpage
+\setcounter{page}{1}
+
+%------------------------------------------------
+
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+
+
+\section*{User stories}
+\addcontentsline{toc}{section}{User stories}
+	Användare
+	\begin{itemize}
+		\item Butiksadministratör
+		\begin{itemize}
+			\item r/w priser
+			\item r/w kampanjer
+			\item r/w lagerstatus
+			\item r/w kategorier
+			\item r leveransstatus
+			\item r kundinfo
+		\end{itemize}
+		\item Lagerarbetare
+		\begin{itemize}
+			\item r/w lagerstatus
+			\item r/w leveransstatus
+			\item r kundinfo
+		\end{itemize}
+		\item Inloggad kund
+		\begin{itemize}
+			\item r/w sin egen kontaktinformation
+			\item läsa sin egen orderhistorik
+			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+			\item lägga ordrar
+			\item ? Spara/skicka kundkorg
+		\end{itemize}
+		\item Ej inloggad kund
+		\begin{itemize}
+			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+			\item lägga ordrar
+			\item ? skicka kundkorg (e-post)
+		\end{itemize}
+
+	See Figure \ref{fig:1} - \ref{fig:4}
+
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/Inventory+Users.jpeg}
+		\caption{}
+		\label{fig:1}
+	\end{figure}
+	
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/Lager.jpeg}
+		\caption{}
+		\label{fig:2}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/ButiksAdmin.jpeg}
+		\caption{}
+		\label{fig:3}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[scale=0.12]{artifacts/Admin.jpeg}
+		\caption{}
+		\label{fig:4}
+	\end{figure}
+
+\section*{System architecture}
+\addcontentsline{toc}{section}{System architecture}
+	During development we run the system on Ruby on Rails (RoR) built in web server
+	Puma and sqlight3 for simplicity, but intend to move to a MariaDB database
+	and a NGINX webserver with Phusion Passenger for RoR. We host
+	the servers ourselves because it seemed seemed fun, educational and fairly simple. 
+
+\section*{Backlog} 
+\addcontentsline{toc}{section}{backlog}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\# & Title & Priority & Time est. & Description \\ \hline
+		301 & Startsida & 100 & 2 & \\ \hline
+		302 & Dynamisk meny från kategorier & 90 & 2 & \\ \hline
+		304 & Produktsida & 110 & 4 & \\ \hline
+		305 & Kundkorg & 80 & 8 & \\ \hline
+		306 & Betalsida & 5 & 12 & \\ \hline
+		307 & Profilsida (kundkort) & 45 & 2 & \\ \hline
+		308 & Orderhistorik & 45 & 1 & \\ \hline
+		309 & Kundinlogg & 50 & 2 & \\ \hline
+		310 & Registrering & 60 & 4 & \\ \hline
+		311 & Produktsökning & 45 & 1 & \\ \hline
+		400 & Backendinloggning & 25 & 2 & \\ \hline
+		401 & Backendinterface & 10 & 2 & \\ \hline
+		403 & Kategorisida & 35 & 4 & \\ \hline
+		407 & Kundinformation & 25 & 1 & \\ \hline
+		410 & Kampanjhantering & 10 & 3 & \\ \hline
+		1 & Personnummer -/+ hantering & 5 & 1 & \\ \hline
+	\end{tabular}
+
+	Planing is done at Trello.com
+	\url{https://trello.com/b/JxDCHBcm}
+
+\section*{Database schema}	
+\addcontentsline{toc}{section}{Database schema}
+	See Figure \ref{fig:6}
+	\begin{figure}
+		\includegraphics[scale=0.7]{artifacts/db_implemented_1_1.png}
+		\caption{Database design.}
+		\label{fig:6}
+	\end{figure}
+
+\section*{Code}
+\addcontentsline{toc}{section}{Code}
+	All code is avalible at github.
+	\url{https://github.com/nikalas/D0018E-Databasteknik.git}
+
+\section*{Test case specifications}
+\addcontentsline{toc}{section}{Test case specifications}
+
+\section*{Limitations and improvements}
+\addcontentsline{toc}{section}{Limitations and improvements}
+
+	We decided to put off saving payment methods and/or information. Might end
+	up readding it to the backlog if it looks like we will have time to spare. 
+
+\end{document}
