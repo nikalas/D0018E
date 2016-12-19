@@ -34,7 +34,7 @@
           </li>
           <li>
             <!-- TODO: Give proper path -->
-            <%= link_to "Information", root_path %>
+            <%= link_to "Logga in", '/sign_in' %>
           </li>
           <li>
             <%= link_to "Checka ut", '/order' %>
@@ -49,29 +49,17 @@
 
   <div class="container-fluid">
     <div class="row">
+
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-          <!-- TODO: testing dynamic menu, move this out as well? -->
-          <% @categories.each do |category| %>
-            <% if category.parent == 1 then %>
-                <li>
-                  <%= link_to category.name, category %>
-                </li>
-                <% @categories.each do |sub| %>
-                  <% if sub.parent == category.id %>
-                    <li>
-                      <%= link_to "-" + sub.name, sub %>
-                    </li>
-                  <% end %>
-                <% end %>
-            <% end %>
-          <% end %>
-
+          <%= render 'layouts/side_menu' %>
         </ul>
       </div>
+
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <%= yield %>
       </div>
+
     </div>
   </div>
 </body>
