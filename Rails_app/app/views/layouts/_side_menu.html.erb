@@ -6,7 +6,7 @@
     <% @categories.each do |sub| %>
       <% if sub.parent == category.id %>
         <li>
-          <%= link_to "-" + sub.name, sub %>
+          <%= link_to "&emsp;&raquo;&nbsp;".html_safe + sub.name, sub %>
         </li>
       <% end %>
     <% end %>

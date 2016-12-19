@@ -6,9 +6,8 @@
     <%= full_title(yield(:title)) %>
   </title>
   <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
@@ -33,7 +32,6 @@
             <%= link_to "Inköpslista", '/cart' %>
           </li>
           <li>
-            <!-- TODO: Give proper path -->
             <%= link_to "Logga in", '/sign_in' %>
           </li>
           <li>
@@ -63,5 +61,4 @@
     </div>
   </div>
 </body>
-
 </html>
