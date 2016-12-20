@@ -1,10 +1,19 @@
 <% provide(:title, @product.name) %>
 <h1><%= @product.name %></h1>
-
-<%= image_tag(@product.picture) %>
-
-
-<p>Pris: <%= @product.price %> </p>
-<p>Lagerstatus: <%= @product.stock %> </p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+       	<%= link_to image_path("#{@product.category_id}/#{@product.picture}"), class: :popup_link, target: :_blank do %>
+          <%= image_tag( "#{@product.category_id}/#{@product.picture}",  :alt => @product.name, :class => "product_image" )  %>
+       	<% end %>
+      </td>
+	  <td>
+        <p><b>Pris:</b> <%= number_with_precision(@product.price, :precision => 2) %>kr </p>
+        <p><b>Lagerstatus:</b> <%= @product.stock %>st </p>
+	  </td>
+	</tr>
+  </tbody>
+</table>
 
 <p><%= @product.description %> </p>
