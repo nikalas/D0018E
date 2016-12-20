@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= link_to image_tag( "#{@product.category_id}/#{@product.picture}" ,  :alt => @product.picture, :class => "img"), "#{@product.category_id}/#{@product.picture}", title: @product.picture %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @product.description %>
+  <strong>Picture:</strong>
+  <%= @product.picture %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
-  <%= @product.picture %>
+  <strong>Description:</strong>
+  <%= @product.description %>
 </p>
 
 <p>
