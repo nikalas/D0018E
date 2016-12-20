@@ -3,18 +3,27 @@
 
 <div id="Kampanj" border=1px class="jumbotron">
   <h1>Kampanj</h1>
-  <p> Placeholder för framtida kampanjer.</p>
+  <p>Placeholder för framtida kampanjer.</p>
 </div>
 
-<div id="random_products">
-  <% random_products = @products.limit(5).order("RANDOM()") %>
+<hr />
 
-  <% random_products.each do |product| %>
-    <%= link_to image_tag( product.picture.empty? ? "placeholder.png" : "#{product.category_id}/#{product.picture}",
-                           :alt => product.name,
-                           :class => "img-rounded",
-                           size: 100 ),
-                item_path( product ),
-                title: product.name %>
-  <% end %>
+<div id="random_products" class="center-block" margin=100%>
+  <h2>Utvalda produkter</h2>
+  <% random_products = @products.limit(6).order("RANDOM()") %>
+  <ul class="list-inline">
+    <% random_products.each do |product| %>
+      <li class="list">
+        <%= link_to image_tag( product.picture.empty? ?
+                                  "placeholder.png" :
+                                  "#{product.category_id}/#{product.picture}",
+                               :alt => product.name,
+                               :class => "img-resomsive center-block img-rounded",
+                               size: 100 ),
+                    item_path( product ),
+                    title: product.name %>
+        <p class="text-center"><%= link_to product.name, product %></p>
+      </li>
+    <% end %>
+  </ul>
 </div>

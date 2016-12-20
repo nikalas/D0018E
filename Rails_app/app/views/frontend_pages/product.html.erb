@@ -1,7 +1,7 @@
 <% provide(:title, @product.name) %>
 <h1><%= @product.name %></h1>
 
-<%= image_tag(@product.picture) %>
+<%= image_tag("#{@product.category_id}/#{@product.picture}") %>
 
 
 <p>Pris: <%= @product.price %> </p>
