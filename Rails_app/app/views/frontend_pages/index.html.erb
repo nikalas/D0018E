@@ -1,10 +1,20 @@
-<% random_products = @products.limit(5).order("RANDOM()") %>
+<h1>Märken och tillbehör</h1>
+<p>Här hittar du allt du behöver för din studentoverall.</p>
 
-<% random_products.each do |product| %>
-  <%= link_to image_tag( product.picture.empty? ? "placeholder.png" : "#{product.category_id}/#{product.picture}",
-                         :alt => product.name,
-                         :class => "img-rounded",
-                         size: 100 ),
-              item_path( product ),
-              title: product.name %>
-<% end %>
+<div id="Kampanj" border=1px class="jumbotron">
+  <h1>Kampanj</h1>
+  <p> Placeholder för framtida kampanjer.</p>
+</div>
+
+<div id="random_products">
+  <% random_products = @products.limit(5).order("RANDOM()") %>
+
+  <% random_products.each do |product| %>
+    <%= link_to image_tag( product.picture.empty? ? "placeholder.png" : "#{product.category_id}/#{product.picture}",
+                           :alt => product.name,
+                           :class => "img-rounded",
+                           size: 100 ),
+                item_path( product ),
+                title: product.name %>
+  <% end %>
+</div>
