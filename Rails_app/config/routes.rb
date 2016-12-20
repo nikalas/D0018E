@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   resources :deliveries
   resources :carts
   resources :customers
+
+  #resources :product
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
