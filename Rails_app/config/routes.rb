@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'frontend_pages#index'
 
-  get '/product', to: 'frontend_pages#product'
+  get '/product/:id', to: 'frontend_pages#product', as: 'item'
   get '/user',    to: 'frontend_pages#user'
   get '/order',   to: 'frontend_pages#order'
   get '/cart',    to: 'frontend_pages#customer_cart'
