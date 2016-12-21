@@ -1,9 +1,11 @@
-<% basket_icon = '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe %>
-<% random_amount = 5 %>
+<% basket_icon     = '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe %>
+<% random_amount   = 30 %>
 <% random_products = @products.limit(random_amount).order("RANDOM()") %>
 
-<h1>Märken och tillbehör</h1>
-<p>Här hittar du allt du behöver för din studentoverall.</p>
+<div id"page-header">
+  <h1>Märken och tillbehör</h1>
+  <p>Här hittar du allt du behöver för din studentoverall.</p>
+</div>
 
 <div id="Kampanj" border=1px class="jumbotron">
   <h1>Kampanj</h1>
@@ -14,28 +16,33 @@
 
 <div id="random_products" class="center-block" margin=100%>
   <h2>Utvalda produkter</h2>
-
+<!-- Factor out this block -->
   <div class="row">
 
-  <% random_products.each do |product| %>
-  <div class="col-sm-6 col-md-3">
+    <% random_products.each do |product| %>
+    <div class="col-sm-6 col-md-2">
 
-    <div class="thumbnail">
-      <%= link_to image_tag( product.picture.empty? ?
-                                  "placeholder.png" : "#{product.category_id}/#{product.picture}",
-                             :alt => product.name,
-                             :class => "img-rounded product_image " ),
-                  item_path( product ),
-                  title: product.name %>
-      <div class="caption">
-        <h4 class="card-title"><%= product.name %></h4>
-        <%= link_to "Visa", product, :class => "btn btn-primary" %>
-        <%= link_to basket_icon, "#", :class => "btn btn-default" %>
+      <div class="thumbnail">
+        <%= link_to image_tag( product.picture.empty? ?
+                                    "placeholder.png" : "#{product.category_id}/#{product.picture}",
+                               :alt   => product.name,
+                               :style => "min.height:200px;height:200px",
+                               :class => "img img-preview" ),
+                    item_path( product ),
+                    title: product.name %>
+        <hr />
+        <div class="caption">
+          <h5><%= product.name %></h5>
+        	<%= link_to "Visa", product,
+        		:class => "btn btn-primary" %>
+        	<%= link_to basket_icon, "#",
+        		:class => "btn btn-default" %>
+        </div>
       </div>
+
     </div>
+    <% end %>
 
   </div>
-  <% end %>
-  </div>
-
+<!-- End of block -->
 </div>
