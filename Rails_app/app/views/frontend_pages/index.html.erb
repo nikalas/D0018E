@@ -1,3 +1,7 @@
+<% basket_icon = '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe %>
+<% random_amount = 5 %>
+<% random_products = @products.limit(random_amount).order("RANDOM()") %>
+
 <h1>Märken och tillbehör</h1>
 <p>Här hittar du allt du behöver för din studentoverall.</p>
 
@@ -11,31 +15,27 @@
 <div id="random_products" class="center-block" margin=100%>
   <h2>Utvalda produkter</h2>
 
-  <% random_products = @products.limit(6).order("RANDOM()") %>
-<div class="row">
+  <div class="row">
 
   <% random_products.each do |product| %>
-  <div class="col-sm-6">
+  <div class="col-sm-6 col-md-3">
 
-    <div class="card>
+    <div class="thumbnail">
       <%= link_to image_tag( product.picture.empty? ?
-                                "placeholder.png" : "#{product.category_id}/#{product.picture}",
+                                  "placeholder.png" : "#{product.category_id}/#{product.picture}",
                              :alt => product.name,
-                             :class => "cart-img-top",
-                             size: 100 ),
+                             :class => "img-rounded product_image " ),
                   item_path( product ),
                   title: product.name %>
-      <div class="card-block">
+      <div class="caption">
         <h4 class="card-title"><%= product.name %></h4>
         <%= link_to "Visa", product, :class => "btn btn-primary" %>
+        <%= link_to basket_icon, "#", :class => "btn btn-default" %>
       </div>
     </div>
 
   </div>
-
-
   <% end %>
-
-</div>
+  </div>
 
 </div>
