@@ -16,7 +16,7 @@
 
 <div id="random_products" class="center-block" margin=100%>
   <h2>Utvalda produkter</h2>
-<!-- Factor out this block -->
+<!-- Factor out this block to something like _product-grid.html.erb-->
   <div class="row">
 
     <% random_products.each do |product| %>
@@ -27,7 +27,7 @@
                                     "placeholder.png" : "#{product.category_id}/#{product.picture}",
                                :alt   => product.name,
                                :style => "min.height:200px;height:200px",
-                               :class => "img img-preview" ),
+                               :class => "img-preview" ),
                     item_path( product ),
                     title: product.name %>
         <hr />
