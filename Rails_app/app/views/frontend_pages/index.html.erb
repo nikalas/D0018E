@@ -10,20 +10,32 @@
 
 <div id="random_products" class="center-block" margin=100%>
   <h2>Utvalda produkter</h2>
+
   <% random_products = @products.limit(6).order("RANDOM()") %>
-  <ul class="list-inline">
-    <% random_products.each do |product| %>
-      <li class="list">
-        <%= link_to image_tag( product.picture.empty? ?
-                                  "placeholder.png" :
-                                  "#{product.category_id}/#{product.picture}",
-                               :alt => product.name,
-                               :class => "img-resomsive center-block img-rounded",
-                               size: 100 ),
-                    item_path( product ),
-                    title: product.name %>
-        <p class="text-center"><%= link_to product.name, product %></p>
-      </li>
-    <% end %>
-  </ul>
+<div class="row">
+
+  <% random_products.each do |product| %>
+  <div class="col-sm-6">
+
+    <div class="card>
+      <%= link_to image_tag( product.picture.empty? ?
+                                "placeholder.png" : "#{product.category_id}/#{product.picture}",
+                             :alt => product.name,
+                             :class => "cart-img-top",
+                             size: 100 ),
+                  item_path( product ),
+                  title: product.name %>
+      <div class="card-block">
+        <h4 class="card-title"><%= product.name %></h4>
+        <%= link_to "Visa", product, :class => "btn btn-primary" %>
+      </div>
+    </div>
+
+  </div>
+
+
+  <% end %>
+
+</div>
+
 </div>
