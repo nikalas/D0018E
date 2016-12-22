@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
 					uniqueness: { case_sensitive: false }
 
   P_NR_REGEX = /\A\d{6}[-+]\d{4}\z/
-  validates :p_nr, presence: true, format: { with: P_NR_REGEX }
+  validates :p_nr, format: { with: P_NR_REGEX }, allow_blank: true
 
   has_secure_password
 
