@@ -2,7 +2,9 @@ require 'test_helper'
 
 class CustomerTest < ActiveSupport::TestCase
   def setup
-    @user = Customer.new(name: "Example User", p_nr: "740101-1111", email: "user@example.com", password: "asdf")
+    @user = Customer.new(name: "Example User", p_nr: "740101-1111", email: "user@example.com",
+                         password: "foobar", password_confirmation: "foobar")
+  
   end
 
   test "should be valid" do
