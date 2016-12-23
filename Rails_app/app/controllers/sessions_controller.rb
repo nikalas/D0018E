@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = Customer.find_by(email: params[:session][:email])
-  if user && user.authenticate(params[:session][:password])
+  	if user && user.authenticate(params[:session][:password])
       log_in user
       redirect_to root_path, :flash => {:success => "Welcome!"}
     else
