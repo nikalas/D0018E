@@ -27,12 +27,31 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
+      # Backend user creation (admin)
+      if is_admin?
+        if @customer.save
+          format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+          format.json { render :show, status: :created, location: @customer }
+        else
+          format.html { render :new }
+          format.json { render json: @customer.errors, status: :unprocessable_entity }
+        end
+      # Frontend user creation (regular sign up)
       else
-        format.html { render :new }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        if @customer.save
+          log_in @customer
+          flash[:success] = 'Welcome!'
+          format.html { redirect_to root_path}
+        else
+          if @customer.errors.any?
+            # TODO This only shows the last message. should probably use
+              # something other than flash
+            @customer.errors.full_messages.each do |msg|
+              flash[:danger] = msg
+            end
+          end
+          format.html { redirect_to sign_up_path}
+        end
       end
     end
   end
