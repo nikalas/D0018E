@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get '/user',    to: 'frontend_pages#user'
   get '/order',   to: 'frontend_pages#order'
   get '/cart',    to: 'frontend_pages#customer_cart'
-  get '/sing_up', to: 'frontend_pages#sing_up'
-  get '/sign_in', to: 'frontend_pages#sign_in'
+  get '/sign_up', to: 'frontend_pages#sing_up'
+  get '/login', to: 'sessions#new'
+  post '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
   get '/admin',   to: 'backend_pages#index'
-
+  
 
 
   resources :sales_products
