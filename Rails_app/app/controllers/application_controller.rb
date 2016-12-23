@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include SessionsHelper
   before_filter :set_categories_for_menu
 
   private
