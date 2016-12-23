@@ -1,15 +1,18 @@
-<% basket_icon     = '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe %>
-<% random_amount   = 30 %>
-<% random_products = @products.limit(random_amount).order("RANDOM()") %>
+<% number_of_products   = 30 %>
+<% products_to_render   = @products.limit(number_of_products).order("RANDOM()") %>
 
 <div id"page-header">
   <h1>Märken och tillbehör</h1>
   <p>Här hittar du allt du behöver för din studentoverall.</p>
 </div>
 
-<div id="Kampanj" border=1px class="jumbotron">
-  <h1>Kampanj</h1>
-  <p>Placeholder för framtida kampanjer.</p>
+<div id="kampanj"  class="col">
+  <!-- factor out block -->
+  <div class="jumbotron">
+    <h1 class="text-center">Kampanj</h1>
+    <p class="text-center">Placeholder för framtida kampanjer.</p>
+  </div>
+  <!-- end of block -->
 </div>
 
 <hr />
@@ -19,23 +22,24 @@
 <!-- Factor out this block to something like _product-grid.html.erb-->
   <div class="row">
 
-    <% random_products.each do |product| %>
-    <div class="col-sm-6 col-md-2">
+    <% products_to_render.each do |product| %>
+    <div class="col-sm-6 col-md-4 col-lg-2">
 
-      <div class="thumbnail">
-        <%= link_to image_tag( product.picture.empty? ?
-                                    "placeholder.png" : "#{product.category_id}/#{product.picture}",
+      <div class="thumbnail product-preview-card">
+        <%= link_to image_tag( product.picture.blank? ?
+                                    "placeholder.png" : product.picture,
                                :alt   => product.name,
                                :style => "min.height:200px;height:200px",
                                :class => "img-preview" ),
                     item_path( product ),
                     title: product.name %>
         <hr />
-        <div class="caption">
-          <h5><%= product.name %></h5>
+        <div class="caption product-preview-caption">
+          <h5 class="product-preview-header"><%= product.name %></h5>
+        	<p class="product-preview-price"><%= "Pris: #{product.price}:-" %></p>
         	<%= link_to "Visa", product,
-        		:class => "btn btn-primary" %>
-        	<%= link_to basket_icon, "#",
+        		:class => "btn btn-default" %>
+        	<%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, "#",
         		:class => "btn btn-default" %>
         </div>
       </div>
