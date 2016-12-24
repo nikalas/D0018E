@@ -4,8 +4,8 @@
   <tbody>
     <tr>
       <td>
-       	<%= link_to image_path("#{@product.category_id}/#{@product.picture}"), class: :popup_link, target: :_blank do %>
-          <%= image_tag( "#{@product.category_id}/#{@product.picture}",  :alt => @product.name, :class => "product_image" )  %>
+       	<%= link_to image_path("#{@product.picture}"), class: :popup_link, target: :_blank do %>
+          <%= image_tag( "#{@product.picture}",  :alt => @product.name, :class => "product_image" )  %>
        	<% end %>
       </td>
 	  <td>
