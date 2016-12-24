@@ -1,0 +1,30 @@
+<%# Remember to set @products_to_render in controller for this to work %>
+
+<div class="row product-grid">
+  <% @products_to_render.each do |product| %>
+    <div class="col-sm-6 col-md-4 col-lg-2">
+      <div class="thumbnail product-preview-card">
+        <%= link_to image_tag( product.picture.blank? ?
+                                    "placeholder.png" : product.picture,
+                               :alt   => product.name,
+                               :style => "min.height:200px;height:200px",
+                               :class => "img-preview"
+                              ),
+                    item_path( product ),
+                    title: product.name
+                    %>
+        <hr />
+        <div class="caption product-preview-caption">
+          <h5 class="product-preview-header"><%= product.name %></h5>
+<%# TODO: Perhaps add a link to the proper category for each product? %>
+        	<p class="product-preview-price"><%= "Pris: #{product.price}:-" %></p>
+        	<%= link_to "Visa", product,
+        		:class => "btn btn-default" %>
+<%# TODO: Add proper link to add product to shopping cart %>
+        	<%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, "#",
+        		:class => "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>

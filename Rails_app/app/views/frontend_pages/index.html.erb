@@ -7,11 +7,8 @@
 </div>
 
 <div id="kampanj"  class="col">
-  <!-- factor out block -->
-  <div class="jumbotron">
-    <h1 class="text-center">Kampanj</h1>
-    <p class="text-center">Placeholder för framtida kampanjer.</p>
-  </div>
+  <!-- factor out block to _campain.html.erb -->
+  <%= render 'campaign' %>
   <!-- end of block -->
 </div>
 
@@ -19,34 +16,6 @@
 
 <div id="random_products" class="center-block" margin=100%>
   <h2>Utvalda produkter</h2>
-<!-- Factor out this block to something like _product-grid.html.erb-->
-  <div class="row">
+  <%= render 'product-grid' %>
 
-    <% products_to_render.each do |product| %>
-    <div class="col-sm-6 col-md-4 col-lg-2">
-
-      <div class="thumbnail product-preview-card">
-        <%= link_to image_tag( product.picture.blank? ?
-                                    "placeholder.png" : product.picture,
-                               :alt   => product.name,
-                               :style => "min.height:200px;height:200px",
-                               :class => "img-preview" ),
-                    item_path( product ),
-                    title: product.name %>
-        <hr />
-        <div class="caption product-preview-caption">
-          <h5 class="product-preview-header"><%= product.name %></h5>
-        	<p class="product-preview-price"><%= "Pris: #{product.price}:-" %></p>
-        	<%= link_to "Visa", product,
-        		:class => "btn btn-default" %>
-        	<%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, "#",
-        		:class => "btn btn-default" %>
-        </div>
-      </div>
-
-    </div>
-    <% end %>
-
-  </div>
-<!-- End of block -->
 </div>
