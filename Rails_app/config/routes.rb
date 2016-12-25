@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'frontend_pages#index'
 
   get '/product/:id', to: 'frontend_pages#product', as: 'item'
+  get '/category/:id', to: 'frontend_pages#category', as: 'category'
   get '/user',    to: 'frontend_pages#user'
   get '/order',   to: 'frontend_pages#order'
   get '/cart',    to: 'frontend_pages#customer_cart'
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   post '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/admin',   to: 'backend_pages#index'
-  
+
 
 
   resources :sales_products
