@@ -32,7 +32,11 @@
             <%= link_to "Inköpslista", '/cart' %>
           </li>
           <li>
-            <%= link_to "Logga in", '/sign_in' %>
+            <% if !logged_in? %>
+              <%= link_to "Logga in", login_path %>
+            <% else %>
+              <%= link_to "Logga ut", logout_path, method: :delete %>
+            <% end %>
           </li>
           <li>
             <%= link_to "Checka ut", '/order' %>
@@ -55,6 +59,12 @@
       </div>
 
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  
+        <div class="container">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
         <%= yield %>
       </div>
 

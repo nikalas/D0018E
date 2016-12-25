@@ -18,6 +18,7 @@ class FrontendPagesController < ApplicationController
   end
 
   def user
+	  @user = Customer.find(params[:id])
   end
 
   def order
@@ -27,6 +28,7 @@ class FrontendPagesController < ApplicationController
   end
 
   def sing_up
+	  @user = Customer.new
   end
 
   def sign_in
