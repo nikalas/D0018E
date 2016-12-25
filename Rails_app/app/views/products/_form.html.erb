@@ -28,7 +28,8 @@
 
   <div class="field">
     <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
+    <%= select_tag( :category_id, options_for_select(@categories),
+    :prompt => "Välj kategori") %>
   </div>
 
   <div class="field">
