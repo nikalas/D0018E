@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :parent %>
-    <%= f.number_field :parent %>
+    <%= f.collection_select( :id, @categories.order(:name),:id,:name, include_blank: true ) %>
   </div>
 
   <div class="actions">
