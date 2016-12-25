@@ -1,6 +1,13 @@
 #### Project related files ###########
 **/stuff/*
 artifacts/Backlog.gsheet
+Rails_app/Gemfile.lock
+
+# LaTeX report auiliary files
+*report.aux
+*report.log
+*report.out
+*report.toc
 
 #### Windows files ###################
 
