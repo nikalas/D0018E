@@ -13,7 +13,10 @@ class FrontendPagesController < ApplicationController
 
   def category
     @category = Category.find(params[:id])
-    @products_to_render = Product.where(category_id: @category.id)
+    
+    @category_ids = Category.where(parent: @category.id).or(
+                    Category.where(id: params[:id])).to_a{|c| c.id}
+    @products_to_render = Product.where(category: @category_ids)
   end
 
   def user
