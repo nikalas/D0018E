@@ -4,78 +4,106 @@ CREATE DATABASE D0018E_Webshop;
 
 USE D0018E_Webshop;
 
-CREATE TABLE Category
+CREATE TABLE schema_migrations 
 (
-	id 		smallint 	AUTO_INCREMENT,
-	name 	varchar(127),
-	parent 	smallint,
+    version     char(14)     NOT NULL, 
+    PRIMARY KEY (version)
+);
+
+CREATE TABLE ar_internal_metadata (
+    key         varchar     NOT NULL, 
+    value       varchar,
+    created_at  datetime    NOT NULL,
+    updated_at  datetime    NOT NULL, 
+    PRIMARY KEY (key)
+);
+
+CREATE TABLE Categories (
+    id          INTEGER     NOT NULL    AUTO_INCREMENT, 
+    name        varchar, 
+    parent      integer, 
+    created_at  datetime    NOT NULL, 
+    updated_at  datetime    NOT NULL, 
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Products (
+    id          INTEGER     NOT NULL    AUTO_INCREMENT, 
+    name        varchar     NOT NULL, 
+    description text, 
+    picture     varchar, 
+    category_id integer,
+    price       float       NOT NULL, 
+    stock       integer     NOT NULL    DEFAULT 0, 
+    created_at  datetime    NOT NULL, 
+    updated_at  datetime    NOT NULL, 
+    PRIMARY KEY (id),
+	FOREIGN KEY (category) REFERENCES Categories(id)
+);
+
+CREATE TABLE Sales (
+    id          INTEGER     NOT NULL AUTO_INCREMENT, 
+    start_date  datetime    DEFAULT CURRENT_TIMESTAMP(), 
+    end_date    datetime, 
+    picture     varchar, 
+    created_at  datetime    NOT NULL, 
+    updated_at  datetime    NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Sales_products (
+    id          INTEGER     NOT NULL AUTO_INCREMENT, 
+    sale_id     integer, 
+    product_id  integer, 
+    created_at  datetime    NOT NULL, 
+    updated_at  datetime    NOT NULL,
+    price_mod   float, 
+    PRIMARY KEY (id),
+    FOREIGN KEY (campain) REFERENCES Sales(id),
+	FOREIGN KEY (product) REFERENCES Products(id)
+);
+
+CREATE TABLE Customers (
+    id              INTEGER     NOT NULL AUTO_INCREMENT, 
+    name            varchar, 
+    p_nr            char(11), 
+    adress          varchar, 
+    zip             integer, 
+    city            varchar, 
+    email           varchar, 
+    phone_nr        varchar, 
+    password_digest varchar, 
+    picture         varchar, 
+    created_at      datetime    NOT NULL, 
+    updated_at      datetime    NOT NULL,
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE Product
-(
-	id 				smallint 	AUTO_INCREMENT,
-	name 			varchar(127) 	NOT NULL,
-	description 	text,
-	picture 		varchar(127),
-	category 		smallint,
-	price 			float 		NOT NULL,
-	stock 			smallint 	NOT NULL 	DEFAULT 0,
-	PRIMARY KEY (id),
-	FOREIGN KEY (category) REFERENCES Category(id)
+CREATE TABLE Carts (
+    id          INTEGER     AUTO_INCREMENT NOT NULL,
+    products    text,
+    customer_id integer,
+    created_at  datetime    NOT NULL,
+    updated_at  datetime    NOT NULL,
+    PRIMARY KEY (id),
+	FOREIGN KEY (customer) REFERENCES Customers(id)
 );
 
-CREATE TABLE Campain
-(
-	id 			smallint 	AUTO_INCREMENT,
-	start_date 	timestamp 	DEFAULT CURRENT_TIMESTAMP(),
-	end_date 	timestamp,
-	picture 	varchar(127),
-	PRIMARY KEY (id)
-);
+CREATE TABLE Deliveries (
+    id          INTEGER     NOT NULL AUTO_INCREMENT, 
+    customer_id integer, 
+    cart_id     integer     NOT NULL, 
+    adress      varchar     NOT NULL, 
+    zip         integer     NOT NULL, 
+    city        varchar     NOT NULL, 
+    payed       boolean     NOT NULL    DEFAULT false, 
+    shipped     boolean     NOT NULL    DEFAULT false, 
+    order_date  date, 
+    created_at  datetime    NOT NULL, 
+    updated_at  datetime    NOT NULL,
+    PRIMARY KEY (id),
+	FOREIGN KEY (customer) REFERENCES Customers(id),
+	FOREIGN KEY (cart_id) REFERENCES Carts(id)
 
-CREATE TABLE CampainProducts
-(
-	campain 	smallint 	NOT NULL,
-	product 	smallint 	NOT NULL,
-	price_mod 	smallint 	NOT NULL,
-	FOREIGN KEY (campain) REFERENCES Campain(id),
-	FOREIGN KEY (product) REFERENCES Product(id)
-);
-
-CREATE TABLE Customer
-(
-	id 			smallint 	AUTO_INCREMENT,
-	name 		varchar(127),
-	p_nr 		char(11),
-	adress 		varchar(127),
-	email 		varchar(127),
-	phone_nr 	varchar(31),
-	password 	char(32),
-	picture 	varchar(127),
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE ShoppingCart
-(
-	id 			smallint 	NOT NULL AUTO_INCREMENT,
-	products 	text,
-	customer 	smallint,
-	PRIMARY KEY (id),
-	FOREIGN KEY (customer) REFERENCES Customer(id)
-);
-
-CREATE TABLE Delivery
-(
-	id 			smallint 		NOT NULL AUTO_INCREMENT,
-	customer 	smallint,
-	adress 		varchar(127) 	NOT NULL,
-	payed 		boolean 		NOT NULL 	DEFAULT false, 
-	shipped 	boolean 		NOT NULL 	DEFAULT false,
-	cart 		smallint 		NOT NULL,
-	oder_date 	date,
-	PRIMARY KEY (id),
-	FOREIGN KEY (customer) REFERENCES Customer(id),
-	FOREIGN KEY (cart) REFERENCES ShoppingCart(id)
 );
 
