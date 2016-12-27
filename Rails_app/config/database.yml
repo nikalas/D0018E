@@ -27,5 +27,6 @@ production:
   username: root
   password: D0018E
   host: 79.136.28.249
-  port: 3306
-  pool: 5
+  port: 8083
+  pool: 100
+  timeout: 5000
