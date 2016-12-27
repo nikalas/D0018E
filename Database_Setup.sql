@@ -18,7 +18,7 @@ CREATE TABLE schema_migrations
     PRIMARY KEY (key)
 );*/
 
-CREATE TABLE Categories (
+CREATE TABLE categories (
     id          INTEGER     NOT NULL    AUTO_INCREMENT, 
     name        varchar(127), 
     parent      integer, 
@@ -27,7 +27,7 @@ CREATE TABLE Categories (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Products (
+CREATE TABLE products (
     id          INTEGER     NOT NULL    AUTO_INCREMENT, 
     name        varchar(127)     NOT NULL, 
     description text, 
@@ -38,10 +38,10 @@ CREATE TABLE Products (
     created_at  datetime    NOT NULL, 
     updated_at  datetime    NOT NULL, 
     PRIMARY KEY (id),
-	FOREIGN KEY (category_id) REFERENCES Categories(id)
+	FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
-CREATE TABLE Sales (
+CREATE TABLE sales (
     id          INTEGER     NOT NULL AUTO_INCREMENT, 
     start_date  datetime    DEFAULT CURRENT_TIMESTAMP(), 
     end_date    datetime, 
@@ -51,7 +51,7 @@ CREATE TABLE Sales (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Sales_products (
+CREATE TABLE sales_products (
     id          INTEGER     NOT NULL AUTO_INCREMENT, 
     sale_id     integer, 
     product_id  integer, 
@@ -59,11 +59,11 @@ CREATE TABLE Sales_products (
     updated_at  datetime    NOT NULL,
     price_mod   float, 
     PRIMARY KEY (id),
-    FOREIGN KEY (sale_id) REFERENCES Sales(id),
-	FOREIGN KEY (product_id) REFERENCES Products(id)
+    FOREIGN KEY (sale_id) REFERENCES sales(id),
+	FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-CREATE TABLE Customers (
+CREATE TABLE customers (
     id              INTEGER     NOT NULL AUTO_INCREMENT, 
     name            varchar(127), 
     p_nr            char(11), 
@@ -79,17 +79,17 @@ CREATE TABLE Customers (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE Carts (
+CREATE TABLE carts (
     id          INTEGER     AUTO_INCREMENT NOT NULL,
     products    text,
     customer_id integer,
     created_at  datetime    NOT NULL,
     updated_at  datetime    NOT NULL,
     PRIMARY KEY (id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id)
+	FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
-CREATE TABLE Deliveries (
+CREATE TABLE deliveries (
     id          INTEGER     NOT NULL AUTO_INCREMENT, 
     customer_id integer, 
     cart_id     integer     NOT NULL, 
@@ -102,7 +102,7 @@ CREATE TABLE Deliveries (
     created_at  datetime    NOT NULL, 
     updated_at  datetime    NOT NULL,
     PRIMARY KEY (id),
-	FOREIGN KEY (customer_id) REFERENCES Customers(id),
-	FOREIGN KEY (cart_id) REFERENCES Carts(id)
+	FOREIGN KEY (customer_id) REFERENCES customers(id),
+	FOREIGN KEY (cart_id) REFERENCES carts(id)
 
 );
