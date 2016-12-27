@@ -1,9 +1,9 @@
-<% @categories.each do |category| %>
+<% Category.all.each do |category| %>
   <% if category.parent == 1 then %>
     <li>
       <%= link_to category.name, category %>
     </li>
-    <% @categories.each do |sub| %>
+    <% Category.all.each do |sub| %>
       <% if sub.parent == category.id %>
         <li>
           <%= link_to "&emsp;&raquo;&nbsp;".html_safe + sub.name, sub %>
