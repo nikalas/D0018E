@@ -21,9 +21,16 @@
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td>
-          <%= link_to image_tag( "#{product.category_id}/#{product.picture}" ,  :alt => product.picture, :class => "product_image"), product_path(product), title: product.name %>
+          <%= link_to image_tag( "#{product.picture}" ,
+                                 :alt => product.picture,
+                                 :class => "product_image"),
+                      product_path(product),
+                      title: product.name %>
         </td>
-        <td><%= product.category_id %></td>
+        <td>
+          <%= link_to Category.find(product.category_id).name,
+                      category_path(product.category_id) %>
+        </td>
         <td><%= product.price %></td>
         <td><%= product.stock %></td>
         <td><%= link_to 'Show', product %></td>
