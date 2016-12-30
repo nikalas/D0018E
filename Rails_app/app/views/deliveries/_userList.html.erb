@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ordrar</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ordernr</th>
+      <th>Datum</th>
+      <th>Summa</th>
+      <th>Betald</th>
+      <th>Skickad</th>
+      <th>Adress</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deliveries.where(customer_id: current_user).each do |delivery| %>
+      <tr>
+        <td><%= delivery.id %></td>
+        <td><%= delivery.created_at.to_date %></td>
+        <td><%# TODO= delivery.price %></td>
+        <td><%= delivery.payed %></td>
+        <td><%= delivery.shipped %></td>
+        <td><%= delivery.adress %><br><%= delivery.zip %><br><%= delivery.city %></td>
+        <td><%# TODO= link_to 'Visa produkter', delivery.cart %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
