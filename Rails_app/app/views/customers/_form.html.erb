@@ -51,6 +51,13 @@
     <%= f.password_field :password %>
   </div>
 
+  <% if !is_admin? %>
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :picture %>
     <%= f.text_field :picture %>
