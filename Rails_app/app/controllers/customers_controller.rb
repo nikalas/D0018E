@@ -14,7 +14,6 @@ class CustomersController < ApplicationController
       @customer = current_user
     end
   end
-  end
 
   # GET /customers/new
   def new
