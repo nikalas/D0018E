@@ -1,3 +1,8 @@
-<div id="add-comment-container row" class="thumbnail">
-  <p class="text-center">Logga in för att lämna ett omdömme.</p>
+<div id="add-review-container row" class="thumbnail">
+  <% if !logged_in? %>
+    <p class="text-center">Logga in för att lämna ett omdömme.</p>
+  <% else %>
+    <div class="grade"></div>
+    <div class="review"></div>
+  <% end %>
 </div>

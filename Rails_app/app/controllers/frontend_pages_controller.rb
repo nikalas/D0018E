@@ -15,9 +15,8 @@ class FrontendPagesController < ApplicationController
     # on creation if you leave the field empty.
     @reviews  = Rating.where(product: @product.id).where.not(review: [nil, ''])
 
-    @products = Product.all
-    number_of_products = 3
-    @products_to_render = @products.limit(number_of_products).order("RANDOM()")
+    number_of_products = 4
+    @products_to_render = Product.limit(number_of_products).order("RANDOM()")
   end
 
   def category
