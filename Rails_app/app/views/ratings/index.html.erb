@@ -16,8 +16,8 @@
   <tbody>
     <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.product_id %></td>
-        <td><%= rating.customer_id %></td>
+        <td><%= rating.product %></td>
+        <td><%= rating.customer %></td>
         <td><%= rating.grade %></td>
         <td><%= rating.review %></td>
         <td><%= link_to 'Show', rating %></td>
