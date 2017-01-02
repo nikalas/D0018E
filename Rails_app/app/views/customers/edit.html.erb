@@ -2,5 +2,9 @@
 
 <%= render 'form', customer: @customer %>
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+<% if is_admin? %>
+  <%= link_to 'Show', @customer %> |
+  <%= link_to 'Back', customers_path %>
+<% else %>
+  <%= link_to 'Tillbaka', user_path %>
+<% end %>
