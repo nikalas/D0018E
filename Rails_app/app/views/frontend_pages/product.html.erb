@@ -23,25 +23,9 @@
 
 <div id=ratings>
 
-<%# container for adding ratings %>
-  <div id="add-comment-container row" class="thumbnail">
-    <p class="text-center">Logga in för att lämna ett omdömme.</p>
-  </div>
+<%# container for adding ratings/review %>
+  <%= render 'add_review' %>
 
-<%# Here are existing ratings %>
-<% (1..5).each do |i| %>
-  <div class="thumbnail comment row">
-      <div class="col-xs-6  col-md-2 col-lg-2 rating ">
-<%# Stars %>
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <% (1..4).each do |j| %>
-           <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-        <% end %>
-<%# end Stars %>
-      </div>
-      <div class="col-xs-6  col-md-3 col-lg-4 col-md-push-6 created-at text-right">10 seconds ago</div>
-      <div class="col-sm-12 col-md-6 col-md-pull-3 username">By: <a href="#">Anonymous som är ett väldigt långt användarnamn</a></div>
-      <div class="review col-xs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere consectetur lorem, id gravida neque vehicula eu. Sed suscipit, ligula eu dapibus consequat, odio turpis commodo tortor, sit amet venenatis quam lorem id mauris. Morbi quam erat, luctus ut pretium at, porta id nisi. Vestibulum ultrices libero at sapien sodales interdum. Sed accumsan tincidunt massa. Vestibulum quis egestas odio. Sed id metus tempor, dapibus augue porttitor, volutpat nisi. Suspendisse molestie sem justo, ac porttitor quam vestibulum sit amet. Aenean faucibus lacus id sapien ullamcorper, at vulputate augue hendrerit. Pellentesque pretium, nibh at porta rhoncus, purus sapien blandit neque, id congue est massa id purus. </div>
-    </div>
-<% end %>
+<%# Here are existing reviews %>
+  <%= render 'reviews' %>
 </div>
