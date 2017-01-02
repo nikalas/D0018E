@@ -1,0 +1,30 @@
+  <%
+  # TODO: Factour this out somehow
+  # Just some shorthands for the glyphs
+  glyph_star       = '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>'.html_safe
+  glyph_star_empty = '<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>'.html_safe
+
+  # Avrundar uppåt
+  count  = Rating.where(product: @product.id).count
+  rating = Rating.where(product: @product.id).average(:grade)
+%>
+
+
+
+<div class"grade-avg">
+<%= "Snittbetyg:#{rating} " %>
+<% if count>=1 %>
+<%# Stars %>
+        <% (1..rating).each do |full| %>
+          <%= glyph_star %>
+        <% end %>
+        <% (1..(5-rating)).each do |empty| %>
+          <%= glyph_star_empty %>
+        <% end %>
+<%# end Stars %>
+</div>
+<% end %>
+
+<div class"grade-count">
+  Antal betyg: <%= count %>
+</div>

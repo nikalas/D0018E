@@ -13,7 +13,7 @@ class FrontendPagesController < ApplicationController
     # This selects all ratings where the review is not null or an empty string
     # It needs to check for empty strings as well since that is what rails inserts
     # on creation if you leave the field empty.
-    @rating  = Rating.where(product: @product.id).where.not(review: [nil, ''])
+    @reviews  = Rating.where(product: @product.id).where.not(review: [nil, ''])
 
     @products = Product.all
     number_of_products = 3
