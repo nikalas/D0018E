@@ -15,6 +15,8 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/new
   def new
     @delivery = Delivery.new
+    @customers = Customer.all
+    @carts = Cart.all
   end
 
   # GET /deliveries/1/edit
