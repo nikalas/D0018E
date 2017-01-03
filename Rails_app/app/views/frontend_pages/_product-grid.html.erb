@@ -18,8 +18,6 @@
           <h5 class="product-preview-header"><%= product.name %></h5>
 <%# TODO: Perhaps add a link to the proper category for each product? %>
         	<p class="product-preview-price"><%= "Pris: #{product.price}:-" %></p>
-        	<%= link_to "Visa", product,
-        		:class => "btn btn-default" %>
 <%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, add_to_cart_path(product_id: product.id, quantity: 1),
         		:class => "btn btn-default", method: :post %>
         </div>

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @delivery.customer %>
+  <%= link_to(@delivery.customer_id, @delivery.customer) %>
 </p>
 
 <p>
   <strong>Cart:</strong>
-  <%= @delivery.cart %>
+  <%=  link_to(@delivery.cart_id, @delivery.cart) %>
 </p>
 
 <p>

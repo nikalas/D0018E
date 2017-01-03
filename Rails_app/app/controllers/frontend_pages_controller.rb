@@ -36,6 +36,7 @@ class FrontendPagesController < ApplicationController
   end
 
   def order
+    @delivery = Delivery.find(params[:id])
   end
 
   def customer_cart
