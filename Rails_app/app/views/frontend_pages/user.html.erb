@@ -30,8 +30,8 @@
   </tbody>
 <table>
 
-<p><%= button_to 'Ändra', edit_customer_path(@user), :method => "get" %> användarinformation.</p>
+<p><%= link_to 'Ändra', edit_customer_path(@user), :class => "btn btn-default" %> användarinformation.</p>
 
-<p><%= button_to 'Se', deliveries_path(@user), :method => "get" %> tidigare beställningar.</p>
+<p><%= link_to 'Se', deliveries_path(@user), :class => "btn btn-default" %> tidigare beställningar.</p>
 
-<p><%= button_to 'Välj', carts_path(@user), :method => "get"  %> kundkorg.</p>
+<p><%= link_to 'Välj', carts_path(@user), :class => "btn btn-default" %> kundkorg.</p>
