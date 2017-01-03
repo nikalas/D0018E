@@ -1,6 +1,13 @@
 module SessionsHelper
   def log_in(customer)
     session[:customer_id] = customer.id
+    
+    # If there is a active cart then claim it
+    if session[:cart_id] && Cart.exists?(id: session[:cart_id])
+      cart = Cart.find(session[:cart_id])
+      cart.customer_id = session[:customer_id]
+      cart.save
+    end
   end
 
   def log_out
