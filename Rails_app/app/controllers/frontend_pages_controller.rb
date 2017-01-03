@@ -9,7 +9,7 @@ class FrontendPagesController < ApplicationController
 
   def product
     @product = Product.find(params[:id])
-
+    
     # This selects all ratings where the review is not null or an empty string
     # It needs to check for empty strings as well since that is what rails inserts
     # on creation if you leave the field empty.
@@ -28,7 +28,11 @@ class FrontendPagesController < ApplicationController
   end
 
   def user
-	  @user = Customer.find(params[:id])
+    if logged_in?
+      @user = current_user
+    else
+      redirect_to login_path
+    end
   end
 
   def order

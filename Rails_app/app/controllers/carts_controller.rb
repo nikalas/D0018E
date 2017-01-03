@@ -12,6 +12,18 @@ class CartsController < ApplicationController
   def show
   end
 
+  def add_to_cart
+      current_cart.add_item(params[:product_id].to_i, params[:quantity].to_i)
+  end
+  
+  def remove_from_cart
+      current_cart.remove_item(params[:product_id].to_i, params[:quantity].to_i)
+  end
+
+  def remove_all_from_cart
+      CartItem.find(params[:product_id].to_i).destroy
+  end
+
   # GET /carts/new
   def new
     @cart = Cart.new

@@ -21,8 +21,8 @@
         	<%= link_to "Visa", product,
         		:class => "btn btn-default" %>
 <%# TODO: Add proper link to add product to shopping cart %>
-        	<%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, "#",
-        		:class => "btn btn-default" %>
+<%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>'.html_safe, add_to_cart_path(product_id: product.id, quantity: 1),
+        		:class => "btn btn-default", method: :post %>
         </div>
       </div>
     </div>
