@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20170103033447) do
     t.string   "phone_nr"
     t.string   "password_digest"
     t.string   "picture"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "permission",      default: 1
   end
 
   create_table "cart_items", force: :cascade do |t|

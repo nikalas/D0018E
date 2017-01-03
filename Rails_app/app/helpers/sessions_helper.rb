@@ -24,10 +24,10 @@ module SessionsHelper
   end
 
   def is_admin?
-    #TODO check for admin privileges
+    current_user.permission == 3    
   end
 
   def is_warehouse_worker?
-    #TODO check for privileges
+    current_user.permission == 2
   end
 end
