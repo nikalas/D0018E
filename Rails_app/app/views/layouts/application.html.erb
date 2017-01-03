@@ -32,6 +32,9 @@
             <%= link_to "Inköpslista", current_cart %>
           </li>
           <li>
+            <%= link_to "Profil", user_path %>
+          </li>
+          <li>
             <% if !logged_in? %>
               <%= link_to "Logga in", login_path %>
             <% else %>

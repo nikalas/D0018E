@@ -20,7 +20,11 @@ class FrontendPagesController < ApplicationController
   end
 
   def user
-	  @user = Customer.find(params[:id])
+    if logged_in?
+      @user = current_user
+    else
+      redirect_to login_path
+    end
   end
 
   def order

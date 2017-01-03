@@ -1,3 +1,37 @@
-<% provide(:title, "Användare") %>
-<h1>FrontendPages#user</h1>
-<p>Find me in app/views/frontend_pages/user.html.erb</p>
+<% provide(:title, "Profil") %>
+<%= image_path("#{@user.picture}") %>
+
+<table>
+  <tbody>
+    <tr>
+      <td> Namn: </td>
+      <td> <%= @user.name %></td>
+    </tr>
+    <tr>
+      <td> Perssonmummer: </td>
+      <td> <%= @user.p_nr %> </td>
+    </tr>
+    <tr>
+      <td> Adress: </td>
+      <td>
+        <%= @user.adress %> <br>
+        <%= @user.zip %> <br>
+        <%= @user.city %> <br>
+      </td>
+    </tr>
+    <tr>
+      <td> E-post: </td>
+      <td> <%= @user.email %> </td>
+    </tr>
+    <tr>
+      <td> Telefonnummer: </td>
+      <td> <%= @user.phone_nr %> </td>
+    </tr>
+  </tbody>
+<table>
+
+<p><%= button_to 'Ändra', edit_customer_path(@user), :method => "get" %> användarinformation.</p>
+
+<p><%= button_to 'Se', deliveries_path(@user), :method => "get" %> tidigare beställningar.</p>
+
+<p><%= button_to 'Välj', carts_path(@user), :method => "get"  %> kundkorg.</p>
