@@ -17,7 +17,22 @@
   </tbody>
 </table>
 
+<%= render 'avg_grade' %>
+
 <p><%= @product.description %> </p>
+
+<hr />
+
+<div id=ratings>
+
+<%# container for adding ratings/review %>
+  <%= render 'add_review' %>
+
+<%# Here are existing reviews %>
+  <%= render 'reviews' %>
+</div>
+
+<hr />
 
 <div id="random_products" class="center-block" margin=100%>
   <h3>Utvalda produkter</h3>

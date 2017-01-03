@@ -1,0 +1,24 @@
+<%
+  # TODO: Factour this out somehow
+  # Just some shorthands for the glyphs
+  glyph_star       = '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>'.html_safe
+  glyph_star_empty = '<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>'.html_safe
+%>
+
+<% @reviews.each do |rating| %>
+  <div class="thumbnail comment row">
+      <div class="col-xs-6  col-md-2 col-lg-2 rating ">
+<%# Stars %>
+        <% (1..rating.grade).each do |full| %>
+          <%= glyph_star %>
+        <% end %>
+        <% (1..(5-rating.grade)).each do |empty| %>
+          <%= glyph_star_empty %>
+        <% end %>
+<%# end Stars %>
+      </div>
+      <div class="col-xs-6  col-md-3 col-lg-4 col-md-push-6 created-at text-right"><%= "#{time_ago_in_words(rating.created_at)} ago" %></div>
+      <div class="col-sm-12 col-md-6 col-md-pull-3 username">By: <%= Customer.find(rating.customer_id).name %></div>
+      <div class="review col-xs-12"><%= rating.review %></div>
+    </div>
+<% end %>

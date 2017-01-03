@@ -1,0 +1,42 @@
+<% rating = @product.ratings.build(customer_id: current_user.id)%>
+<div id="add-review-container row" class="thumbnail">
+  <% if !logged_in? %>
+    <p class="text-center">Logga in för att lämna ett omdömme.</p>
+  <% else %>
+
+    <%= form_for(rating) do |f| %>
+      <% if rating.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+          <ul>
+          <% rating.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%# These values are set in the top of the file %>
+      <%# Make these fields hidden if user submits bad input%>
+
+      <%= f.hidden_field :customer_id %>
+      <%= f.hidden_field :product_id %>
+
+      <div class="field">
+        <%= f.label :grade %>
+        <%= f.number_field :grade %>
+      </div>
+
+      <div class="field">
+        <%= f.label :review %>
+        <%= f.text_area :review %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+  <% end %>
+</div>

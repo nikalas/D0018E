@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   root 'frontend_pages#index'
 
   get '/product/:id', to: 'frontend_pages#product', as: 'item'
