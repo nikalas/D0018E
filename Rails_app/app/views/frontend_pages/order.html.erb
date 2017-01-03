@@ -1,3 +1,34 @@
 <% provide(:title, "Lägg order") %>
-<h1>FrontendPages#order</h1>
-<p>Find me in app/views/frontend_pages/order.html.erb</p>
+
+<%= form_for(@delivery) do |f| %>
+  <% if @delivery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(delivery.errors.count, "error") %> prohibited this delivery from being saved:</h2>
+
+      <ul>
+      <% @delivery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :adress %>
+    <%= f.text_field :adress %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip %>
+    <%= f.number_field :zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
