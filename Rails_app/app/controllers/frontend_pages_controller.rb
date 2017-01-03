@@ -9,6 +9,10 @@ class FrontendPagesController < ApplicationController
 
   def product
     @product = Product.find(params[:id])
+
+    @products = Product.all
+    number_of_products = 3
+    @products_to_render = @products.limit(number_of_products).order("RANDOM()")
   end
 
   def category
@@ -20,7 +24,11 @@ class FrontendPagesController < ApplicationController
   end
 
   def user
-	  @user = Customer.find(params[:id])
+    if logged_in?
+      @user = current_user
+    else
+      redirect_to login_path
+    end
   end
 
   def order

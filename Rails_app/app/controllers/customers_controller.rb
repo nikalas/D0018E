@@ -10,6 +10,9 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    if !is_admin?
+      @customer = current_user
+    end
   end
 
   # GET /customers/new
@@ -19,6 +22,9 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    if !is_admin?
+      @customer = current_user
+    end
   end
 
   # POST /customers

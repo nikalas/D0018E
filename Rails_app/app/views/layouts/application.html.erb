@@ -29,7 +29,10 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to "Inköpslista", '/cart' %>
+            <%= link_to "Inköpslista", current_cart %>
+          </li>
+          <li>
+            <%= link_to "Profil", user_path %>
           </li>
           <li>
             <% if !logged_in? %>
