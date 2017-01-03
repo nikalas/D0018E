@@ -12,6 +12,10 @@
 	  <td>
         <p><b>Pris:</b> <%= number_with_precision(@product.price, :precision => 2) %>kr </p>
         <p><b>Lagerstatus:</b> <%= @product.stock %>st </p>
+        <%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                     </span>'.html_safe,
+                     add_to_cart_path(product_id: @product.id, quantity: 1),
+        		     :class => "btn btn-default", method: :post %>
 	  </td>
 	</tr>
   </tbody>
