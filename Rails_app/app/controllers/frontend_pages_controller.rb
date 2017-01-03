@@ -9,6 +9,10 @@ class FrontendPagesController < ApplicationController
 
   def product
     @product = Product.find(params[:id])
+
+    @products = Product.all
+    number_of_products = 3
+    @products_to_render = @products.limit(number_of_products).order("RANDOM()")
   end
 
   def category
