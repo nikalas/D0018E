@@ -1,6 +1,6 @@
 module CartsHelper
   def current_cart
-    if Cart.exists?(id: session[:cart_id])
+    if Cart.exists?(session[:cart_id])
       @current_cart ||= Cart.find(session[:cart_id])
     else
       if logged_in?
