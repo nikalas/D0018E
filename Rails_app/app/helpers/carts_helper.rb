@@ -6,7 +6,7 @@ module CartsHelper
       if logged_in?
         if Cart.where(customer_id: session[:customer_id]).blank?
             @current_cart = Cart.where(customer_id: session[:customer_id]
-                                      ).order("created_at, DESC").first
+                                      ).order(created_at: :desc).first
         else
           @current_cart = Cart.create!
           @current_cart.customer_id = session[:customer_id]
