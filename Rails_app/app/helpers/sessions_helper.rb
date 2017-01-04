@@ -1,7 +1,7 @@
 module SessionsHelper
   def log_in(customer)
     session[:customer_id] = customer.id
-    
+
     # If there is a active cart then claim it
     if session[:cart_id] && Cart.exists?(id: session[:cart_id])
       cart = Cart.find(session[:cart_id])
@@ -26,10 +26,14 @@ module SessionsHelper
   end
 
   def is_admin?
-    current_user.permission == 3    
+    if logged_in?
+      current_user.permission == 3
+    end
   end
 
   def is_warehouse_worker?
-    current_user.permission == 2
+    if logged_in?
+      current_user.permission == 2
+    end
   end
 end
