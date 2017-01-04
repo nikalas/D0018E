@@ -9,7 +9,7 @@ module CartsHelper
                                       ).order("created_at, DESC").first
         else
           @current_cart = Cart.create!
-          @current_cart.customer_id = sessioni[:customer_id]
+          @current_cart.customer_id = session[:customer_id]
         end
       else
         @current_cart = Cart.create!
