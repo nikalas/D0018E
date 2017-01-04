@@ -4,7 +4,7 @@
   <% else %>
 
     <% rating = @product.ratings.build(customer_id: current_user.id)%>
-    <%= render 'ratings/_form' %>
+    <%= render 'ratings/form', rating: rating %>
 
 <%# TODO: Remove this block if preceeding block works%>
 <%# Trying new approach %>
