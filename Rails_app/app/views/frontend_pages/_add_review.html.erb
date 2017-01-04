@@ -1,0 +1,12 @@
+<div id="add-review-container row" class="thumbnail">
+  <% if !logged_in? %>
+    <p class="text-center">Logga in för att lämna ett omdömme.</p>
+  <% else %>
+
+    <h2 class="h4">Lämna omdömme</h1>
+    <% rating = @product.ratings.build(customer_id: current_user.id)%>
+    <%= render 'ratings/form', rating: rating %>
+
+  <% end %>
+
+</div>

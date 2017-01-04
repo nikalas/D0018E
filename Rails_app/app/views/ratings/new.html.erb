@@ -1,0 +1,9 @@
+<h1>New Rating</h1>
+
+<%= render 'form', rating: @rating %>
+
+<%# TODO: hehe last minute hackhack %>
+<% if is_admin? %>
+<%= link_to 'Back', ratings_path %>
+<% end %>
+

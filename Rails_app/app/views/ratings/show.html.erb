@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @rating.product.name %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @rating.customer.name %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @rating.grade %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @rating.review %>
+</p>
+
+<%= link_to 'Edit', edit_rating_path(@rating) %> |
+
+<%# TODO: hehe last minute hackhack %>
+<% if is_admin? %>
+<%= link_to 'Back', ratings_path %>
+<% end %>

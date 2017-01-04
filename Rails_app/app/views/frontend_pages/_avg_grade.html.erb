@@ -1,0 +1,37 @@
+<%
+  # TODO: So this needs to be fucked around with so it can be used in the product review cards.
+  #       Have been trying to get it right for two hours now and I simply can't
+  #       be arsed to do it right now. Maybe after some sleep.
+
+  # TODO: Factour this out somehow
+  # Just some shorthands for the glyphs
+  glyph_star       = '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>'.html_safe
+  glyph_star_empty = '<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>'.html_safe
+
+  # Well, this is just beutiful isn't it?
+  product = @product
+  grade_count  = Rating.where(product: product.id).count
+  # If there aren't any grades on a product and you don't set grade_avg to 0
+  # the whole thing just breaks. Something with .average and .ceil not working with nil.
+  if grade_count >= 1
+    # Grades round up. That's fair.
+    grade_avg = Rating.where(product: product.id).average(:grade).ceil
+  else
+    grade_avg = 0
+  end
+%>
+
+
+<div class"grade-avg">
+  <%= "Snittbetyg: " %>
+    <% (1..grade_avg).each do |full| %>
+      <%= glyph_star %>
+    <% end %>
+    <% (1..(5-grade_avg)).each do |empty| %>
+      <%= glyph_star_empty %>
+    <% end %>
+</div>
+
+<div class"grade-count">
+  Antal betyg: <%= grade_count %>
+</div>

@@ -1,14 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Products:</strong>
-  <%= @cart.products %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Produkt</th>
+      <th>Antal</th>
+      <th>Pris</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @cart.customer %>
-</p>
+  <tbody>
+    <% @cart.shopping_cart_items.each do |item| %>
+      <tr>      
+        <td><%= link_to Product.find(item.item_id).name, 
+                                     item_path(item.item_id) %>
+        </td>
+        <td><%= item.quantity %> (<%=Product.find(item.item_id).stock %>)</td>
+        <td><%= item.subtotal %> (<%=Product.find(item.item_id).price %>)</td>
+<td><%= link_to 'Lägg till en', add_to_cart_path(product_id: item.item_id, quantity: 1),
+        		:class => "btn btn-default", method: :post %></td>
+<td><%= link_to 'Ta bort en', remove_from_cart_path(product_id: item.item_id, quantity: 1),
+        		:class => "btn btn-default", method: :post %></td>
+<td><%= link_to 'Ta bort alla', remove_all_from_cart_path(product_id: item.id),
+        		:class => "btn btn-default", method: :post %></td>
+        <%#TODO options to add or remove larger numbers of items%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= link_to 'Kassa', '/order' %>

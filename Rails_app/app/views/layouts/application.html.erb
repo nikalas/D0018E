@@ -30,7 +30,10 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to "Inköpslista", '/cart' %>
+            <%= link_to "Inköpslista", current_cart %>
+          </li>
+          <li>
+            <%= link_to "Profil", user_path %>
           </li>
           <li>
             <% if !logged_in? %>
@@ -40,12 +43,9 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "Checka ut", '/order' %>
+            <%= link_to "Checka ut", check_out_path, method: :post %>
           </li>
         </ul>
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
       </div>
     </div>
   </nav>

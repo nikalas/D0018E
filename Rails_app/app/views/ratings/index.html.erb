@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Customer</th>
+      <th>Grade</th>
+      <th>Review</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if logged_in? && !is_admin? %>
+      <% @ratings.where(customer_id: current_user.id).each do |rating| %>
+      <tr>
+        <td><%= rating.product.name %></td>
+        <td><%= rating.customer.name %></td>
+        <td><%= rating.grade %></td>
+        <td><%= rating.review %></td>
+        <td><%= link_to 'Show', rating %></td>
+        <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
+        <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% elsif is_admin? %>
+      <% @ratings.each do |rating| %>
+      <tr>
+        <td><%= rating.product.name %></td>
+        <td><%= rating.customer.name %></td>
+        <td><%= rating.grade %></td>
+        <td><%= rating.review %></td>
+        <td><%= link_to 'Show', rating %></td>
+        <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
+        <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rating', new_rating_path %>

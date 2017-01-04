@@ -14,12 +14,12 @@ class Customer < ApplicationRecord
                     allow_blank: true
 
   has_secure_password
-  validates :password,  confirmation: true,
-                        :presence => { :on => :create },
-                        length: { minimum: 6 }
-
-  # TODO check that password is the same as password_confirmation. This should
-  # work automaticly, but does not. 
-#  validates_confirmation_of :password
-#  validates :password_confirmation, length: { minimum: 6 }
+  validates :password,  presence: true,
+                        length: { minimum: 6, maximum: 72 },
+                        :on => :create
+  
+  validates :password,  presence: true,
+                        length: { minimum: 6, maximum: 72},
+                        allow_nil: true,
+                        :on => :update
 end

@@ -1,10 +1,15 @@
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
+  include DeliveriesHelper
 
   # GET /deliveries
   # GET /deliveries.json
   def index
-    @deliveries = Delivery.all
+    if current_user.permission >= 1
+      @deliveries = Delivery.all
+    else 
+      @deliveries = Delivery.where(customer_id: current_user.id)
+    end
   end
 
   # GET /deliveries/1
@@ -15,10 +20,27 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/new
   def new
     @delivery = Delivery.new
+    @customers = Customer.all
+    @carts = Cart.all
   end
 
   # GET /deliveries/1/edit
   def edit
+    @customers = Customer.all
+    @carts = Cart.all
+  end
+
+  def check_out
+    if check_stock
+      if logged_in?
+          @new_delivery = Delivery.create(customer_id: current_user.id, cart_id: current_cart.id, adress: current_user.adress, zip: current_user.zip, city: current_user.city)
+      else
+        @new_delivery = Delivery.create(cart_id: current_cart.id)
+      end
+      redirect_to order_path(@new_delivery)
+    else
+      redirect_to current_cart, :flash => { :error => "För många av någon vara. Var vänlig justera kundkorgen eller vända tills vi har fått in fler."}
+    end
   end
 
   # POST /deliveries

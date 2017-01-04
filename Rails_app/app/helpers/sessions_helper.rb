@@ -1,6 +1,13 @@
 module SessionsHelper
   def log_in(customer)
     session[:customer_id] = customer.id
+
+    # If there is a active cart then claim it
+    if session[:cart_id] && Cart.exists?(id: session[:cart_id])
+      cart = Cart.find(session[:cart_id])
+      cart.customer_id = session[:customer_id]
+      cart.save
+    end
   end
 
   def log_out
@@ -17,10 +24,14 @@ module SessionsHelper
   end
 
   def is_admin?
-    #TODO check for admin privileges
+    if logged_in?
+      current_user.permission == 3
+    end
   end
 
   def is_warehouse_worker?
-    #TODO check for privileges
+    if logged_in?
+      current_user.permission == 2
+    end
   end
 end

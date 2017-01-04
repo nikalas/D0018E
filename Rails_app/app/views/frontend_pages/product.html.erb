@@ -12,9 +12,33 @@
 	  <td>
         <p><b>Pris:</b> <%= number_with_precision(@product.price, :precision => 2) %>kr </p>
         <p><b>Lagerstatus:</b> <%= @product.stock %>st </p>
+        <%= link_to '<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                     </span>'.html_safe,
+                     add_to_cart_path(product_id: @product.id, quantity: 1),
+        		     :class => "btn btn-default", method: :post %>
 	  </td>
 	</tr>
   </tbody>
 </table>
 
+<%= render 'avg_grade' %>
+
 <p><%= @product.description %> </p>
+
+<hr />
+
+<div id=ratings>
+
+<%# container for adding ratings/review %>
+  <%= render 'add_review' %>
+
+<%# Here are existing reviews %>
+  <%= render 'reviews' %>
+</div>
+
+<hr />
+
+<div id="random_products" class="center-block" margin=100%>
+  <h3>Utvalda produkter</h3>
+  <%= render 'product-grid' %>
+</div>

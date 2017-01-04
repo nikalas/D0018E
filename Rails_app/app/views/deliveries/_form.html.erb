@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :customer_id %>
-    <%= f.text_field :customer_id %>
+    <%= f.collection_select( :id, @customers,:id, :id, include_blank: true ) %>
   </div>
 
   <div class="field">
     <%= f.label :cart_id %>
-    <%= f.text_field :cart_id %>
+    <%= f.collection_select( :id, @carts,:id, :id ) %>
   </div>
 
   <div class="field">
@@ -44,11 +44,6 @@
   <div class="field">
     <%= f.label :shipped %>
     <%= f.check_box :shipped %>
-  </div>
-
-  <div class="field">
-    <%= f.label :order_date %>
-    <%= f.check_box :order_date %>
   </div>
 
   <div class="actions">
