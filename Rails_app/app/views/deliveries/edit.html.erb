@@ -2,5 +2,7 @@
 
 <%= render 'form', delivery: @delivery %>
 
-<%= link_to 'Show', @delivery %> |
-<%= link_to 'Back', deliveries_path %>
+<% if is_admin? %>
+  <%= link_to 'Show', @delivery %> |
+  <%= link_to 'Back', deliveries_path %>
+<% end %>
