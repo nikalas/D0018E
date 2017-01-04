@@ -2,11 +2,16 @@ module SessionsHelper
   def log_in(customer)
     session[:customer_id] = customer.id
 
-    # If there is a active cart then claim it
-    if session[:cart_id] && Cart.exists?(id: session[:cart_id])
-      cart = Cart.find(session[:cart_id])
-      cart.customer_id = session[:customer_id]
-      cart.save
+    # If there is a active cart without owner then claim it
+    # else drop it and make a new
+    if !current_cart.nil?
+      if current_cart.customer_id == nil
+        current_cart.customer_id = session[:customer_id]
+        current_cart.save
+      else
+        @current_cart = nil
+        session.delete(:cart_id)
+      end
     end
   end
 
