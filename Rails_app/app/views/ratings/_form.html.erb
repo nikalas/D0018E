@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :grade %>
-    <%= f.number_field :grade %>
+    <%= f.number_field :grade, in: 0..5 %>
   </div>
 
   <div class="field">
