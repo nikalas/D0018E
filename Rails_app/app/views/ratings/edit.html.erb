@@ -3,4 +3,8 @@
 <%= render 'form', rating: @rating %>
 
 <%= link_to 'Show', @rating %> |
+
+<%# TODO: hehe last minute hackhack %>
+<% if is_admin? %>
 <%= link_to 'Back', ratings_path %>
+<% end %>
