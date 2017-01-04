@@ -31,6 +31,15 @@ class CartsController < ApplicationController
       CartItem.find(params[:product_id].to_i).destroy
   end
 
+  def select_cart
+      if Cart.find(params[:cart_id]).customer_id == session[:customer_id]
+        current_cart = Cart.find(params[:cart_id])
+        session[:cart_id] = params[:cart_id]
+      else
+        #TODO Not your cart!
+      end
+  end
+
   # GET /carts/new
   def new
     @cart = Cart.new
