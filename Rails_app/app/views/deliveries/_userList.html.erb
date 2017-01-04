@@ -20,11 +20,11 @@
       <tr>
         <td><%= delivery.id %></td>
         <td><%= delivery.created_at.to_date %></td>
-        <td><%# TODO= delivery.price %></td>
+        <td><%= delivery.cart.total %></td>
         <td><%= delivery.payed %></td>
         <td><%= delivery.shipped %></td>
         <td><%= delivery.adress %><br><%= delivery.zip %><br><%= delivery.city %></td>
-        <td><%# TODO= link_to 'Visa produkter', delivery.cart %></td>
+        <td><%= link_to "Produkter", delivery.cart %></td>
       </tr>
     <% end %>
   </tbody>

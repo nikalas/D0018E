@@ -40,5 +40,7 @@
   <%= @delivery.order_date %>
 </p>
 
-<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
-<%= link_to 'Back', deliveries_path %>
+<% if is_admin? %>
+  <%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+  <%= link_to 'Back', deliveries_path %>
+<% end %>
