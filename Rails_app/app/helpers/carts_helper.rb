@@ -4,12 +4,11 @@ module CartsHelper
       @current_cart ||= Cart.find(session[:cart_id])
     else
       if logged_in?
-        if Cart.where(customer_id: session[:customer_id]).blank?
+          if Cart.where(customer_id: session[:customer_id]).exists?
             @current_cart = Cart.where(customer_id: session[:customer_id]
-                                      ).order(created_at: :desc).first
+                                      ).last
         else
-          @current_cart = Cart.create!
-          @current_cart.customer_id = session[:customer_id]
+          @current_cart = Cart.create(customer_id: session[:customer_id])
         end
       else
         @current_cart = Cart.create!
