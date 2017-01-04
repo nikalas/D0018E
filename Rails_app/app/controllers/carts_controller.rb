@@ -4,7 +4,14 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    if !logged_in?
+      flash[:error] = "Loggin to view your carts"
+      redirect_to root_path
+    elsif logged_in? && current_user.permission == 1
+      @carts = Cart.where(id: current_user.id)
+    else
+      @carts = Cart.all
+    end
   end
 
   # GET /carts/1
