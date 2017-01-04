@@ -1,9 +1,9 @@
-<% rating = @product.ratings.build(customer_id: current_user.id)%>
 <div id="add-review-container row" class="thumbnail">
   <% if !logged_in? %>
     <p class="text-center">Logga in för att lämna ett omdömme.</p>
   <% else %>
 
+    <% rating = @product.ratings.build(customer_id: current_user.id)%>
     <%= form_for(rating) do |f| %>
       <% if rating.errors.any? %>
         <div id="error_explanation">
