@@ -4,6 +4,11 @@
   <% else %>
 
     <% rating = @product.ratings.build(customer_id: current_user.id)%>
+    <%= render 'ratings/_form' %>
+
+<%# TODO: Remove this block if preceeding block works%>
+<%# Trying new approach %>
+<% if 1==0 %>
     <%= form_for(rating) do |f| %>
       <% if rating.errors.any? %>
         <div id="error_explanation">
@@ -37,6 +42,7 @@
         <%= f.submit %>
       </div>
     <% end %>
+<% end %>
 
   <% end %>
 </div>

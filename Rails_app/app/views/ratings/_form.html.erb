@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :product_id %>
-    <%= f.text_field :product_id %>
-  </div>
+  <% if is_admin? %>
+      <div class="field">
+        <%= f.label :product_id %>
+        <%= f.text_field :product_id %>
+      </div>
 
-  <div class="field">
-    <%= f.label :customer_id %>
-    <%= f.text_field :customer_id %>
-  </div>
+      <div class="field">
+        <%= f.label :customer_id %>
+        <%= f.text_field :customer_id %>
+      </div>
+  <% else %>
+      <%= f.hidden_field :customer_id %>
+      <%= f.hidden_field :product_id %>
+  <% end %>
 
   <div class="field">
     <%= f.label :grade %>
