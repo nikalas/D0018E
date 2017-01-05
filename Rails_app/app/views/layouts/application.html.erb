@@ -24,7 +24,10 @@
             <span class="icon-bar"></span>
           </button>
         <h2>
-          <%= link_to is_admin? ? "u-r-admin" : "Patches-N-Stuff", root_path, id: "logo" %>
+          <% if is_admin? %>
+            <%= link_to "u-r-admin", admin_path, id: "logo" %>@
+          <% end %>
+          <%= link_to "Patches-N-Stuff", root_path, id: "logo" %>
         </h2>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
