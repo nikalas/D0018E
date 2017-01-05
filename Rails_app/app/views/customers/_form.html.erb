@@ -62,12 +62,12 @@
     <%= f.label :picture %>
     <%= f.text_field :picture %>
   </div>
-
-  <div class="field">
-    <%= f.label :permission %>
-    <%= f.number_field :permission %>
-  </div>
-
+  <% if is_admin? %>
+    <div class="field">
+      <%= f.label :permission %>
+      <%= f.number_field :permission %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
