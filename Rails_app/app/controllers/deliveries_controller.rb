@@ -33,11 +33,13 @@ class DeliveriesController < ApplicationController
   def check_out
     if check_stock
       if logged_in?
-          @new_delivery = Delivery.create(customer_id: current_user.id, cart_id: current_cart.id, adress: current_user.adress, zip: current_user.zip, city: current_user.city)
+          @delivery = Delivery.create(customer_id: current_user.id, cart_id: current_cart.id, adress: current_user.adress, zip: current_user.zip, city: current_user.city)
       else
-        @new_delivery = Delivery.create(cart_id: current_cart.id)
+        @delivery = Delivery.create(cart_id: current_cart.id)
       end
-      redirect_to order_path(@new_delivery)
+      current_cart = nil
+      session[:cart_id] = nil
+      redirect_to order_path(@delivery)
     else
       redirect_to current_cart, :flash => { :error => "För många av någon vara. Var vänlig justera kundkorgen eller vända tills vi har fått in fler."}
     end
