@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :customer_id %>
-    <%= f.collection_select( :id, @customers,:id, :id, include_blank: true ) %>
+    <%= f.collection_select( :customer_id, @customers,:id, :id, include_blank: true ) %>
   </div>
 
   <div class="field">
     <%= f.label :cart_id %>
-    <%= f.collection_select( :id, @carts,:id, :id ) %>
+    <%= f.collection_select( :cart_id, @carts,:id, :id ) %>
   </div>
 
   <div class="field">
