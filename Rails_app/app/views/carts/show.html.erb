@@ -18,14 +18,15 @@
         </td>
         <td><%= item.quantity %> (<%=Product.find(item.item_id).stock %>)</td>
         <td><%= item.subtotal %> (<%=Product.find(item.item_id).price %>)</td>
-<td><%= link_to 'Lägg till en', add_to_cart_path(product_id: item.item_id, quantity: 1),
+        <% if !@cart.used %>
+          <td><%= link_to 'Lägg till en', add_to_cart_path(product_id: item.item_id, quantity: 1),
         		:class => "btn btn-default", method: :post %></td>
-<td><%= link_to 'Ta bort en', remove_from_cart_path(product_id: item.item_id, quantity: 1),
+          <td><%= link_to 'Ta bort en', remove_from_cart_path(product_id: item.item_id, quantity: 1),
         		:class => "btn btn-default", method: :post %></td>
-<td><%= link_to 'Ta bort alla', remove_all_from_cart_path(product_id: item.id),
+          <td><%= link_to 'Ta bort alla', remove_all_from_cart_path(product_id: item.id),
         		:class => "btn btn-default", method: :post %></td>
-        <%#TODO options to add or remove larger numbers of items%>
-        </td>
+            <%#TODO options to add or remove larger numbers of items%>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

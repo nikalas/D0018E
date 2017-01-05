@@ -37,8 +37,13 @@ class DeliveriesController < ApplicationController
       else
         @delivery = Delivery.create(cart_id: current_cart.id)
       end
+      @delivery.total = current_cart.total
+      @delivery.save
+      current_cart.used = true
+      current_cart.save
       current_cart = nil
       session[:cart_id] = nil
+
       redirect_to order_path(@delivery)
     else
       redirect_to current_cart, :flash => { :error => "För många av någon vara. Var vänlig justera kundkorgen eller vända tills vi har fått in fler."}
