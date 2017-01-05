@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/check_out' => 'deliveries#check_out', :as => 'check_out'
   get '/order/:id',   to: 'frontend_pages#order', as: 'order'
   get '/cart',    to: 'frontend_pages#customer_cart', as: 'basket'
+  post '/select_cart/:cart_id' => 'carts#select_cart', :as => 'select_cart'
   post '/add_to_cart/:product_id,:quantity' => 'carts#add_to_cart', :as => 'add_to_cart'
   post '/remove_from_cart/:product_id,:quantity' => 'carts#remove_from_cart', :as => 'remove_from_cart'
   post '/remove_all_from_cart/:product_id' => 'carts#remove_all_from_cart', :as => 'remove_all_from_cart'

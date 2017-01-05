@@ -20,6 +20,7 @@
         <td><%= cart.customer_id %></td>
         <td><%= cart.total_unique_items %>(<%= cart.shopping_cart_items.size %>)</td>
         <td><%= cart.total %></td>
+        <td><%= link_to 'Select', select_cart_path(cart_id: cart.id), method: :post %></td>
         <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

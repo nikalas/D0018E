@@ -4,7 +4,14 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    if !logged_in?
+      flash[:error] = "Loggin to view your carts"
+      redirect_to root_path
+    elsif logged_in? && current_user.permission == 1
+      @carts = Cart.where(customer_id: current_user.id)
+    else
+      @carts = Cart.all
+    end
   end
 
   # GET /carts/1
@@ -22,6 +29,15 @@ class CartsController < ApplicationController
 
   def remove_all_from_cart
       CartItem.find(params[:product_id].to_i).destroy
+  end
+
+  def select_cart
+      if Cart.find(params[:cart_id]).customer_id == session[:customer_id]
+        current_cart = Cart.find(params[:cart_id])
+        session[:cart_id] = params[:cart_id]
+      else
+        #TODO Not your cart!
+      end
   end
 
   # GET /carts/new
