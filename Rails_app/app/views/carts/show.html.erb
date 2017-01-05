@@ -33,4 +33,4 @@
 
 <p><b>Totalt:</b> <%= number_with_precision(@cart.total, :precision => 2) %>kr </p>
 
-<p><%= link_to 'Kassa', '/order', :class => "btn btn-default" %></p>
+<p><%= link_to 'Kassa', '/check_out', :class => "btn btn-default", method: :post %></p>
