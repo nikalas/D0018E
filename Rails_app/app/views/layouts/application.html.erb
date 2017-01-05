@@ -45,6 +45,19 @@
           <li>
             <%= link_to "Checka ut", check_out_path, method: :post %>
           </li>
+          <li class="hidden-sm hidden-md hidden-lg hidden-lg">
+            <a data-toggle="collapse" data-target="#categories">Kategorier</a>
+          </li>
+<%
+  # Here comes the categories.
+  # On larger displays (above xs) they vill be hidden.
+%>
+
+          <li>
+            <ul id="categories" class="nav navbar-right navbar-nav hidden-sm hidden-md hidden-lg hidden-lg collapse">
+              <%= render 'layouts/side_menu' %>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
