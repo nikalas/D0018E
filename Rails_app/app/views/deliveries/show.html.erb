@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<% if !is_admin? %>
+  <% if @delivery.shipped %>
+      <h2>Dina varor är påväg</h2>
+  <% elsif !@delivery.payed %>
+      <h2>Vi kommer att behandla din order och skicka faktura</h2>
+  <% else %>
+      <h2>Vi har tagit emot din betalning och kommer att skicka varorna snarast</h2>
+  <% end %>
+<% end %>
+
 <p>
   <strong>Customer:</strong>
   <%= link_to(@delivery.customer_id, @delivery.customer) %>
@@ -37,10 +47,10 @@
 
 <p>
   <strong>Order date:</strong>
-  <%= @delivery.order_date %>
+  <%= @delivery.created_at %>
 </p>
 
 <% if is_admin? %>
   <%= link_to 'Edit', edit_delivery_path(@delivery) %> |
-  <%= link_to 'Back', deliveries_path %>
 <% end %>
+<%= link_to 'Back', deliveries_path %>

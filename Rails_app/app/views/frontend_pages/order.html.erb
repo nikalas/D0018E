@@ -1,5 +1,40 @@
 <% provide(:title, "Lägg order") %>
 
+<h2>Lägg bestälning</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produkt</th>
+      <th>Antal</th>
+      <th>Pris</th>
+      <th><b>Totalt</b></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Cart.find(@delivery.cart_id).shopping_cart_items.each do |item| %>
+      <tr>      
+        <td><%= Product.find(item.item_id).name %> </td>
+        <td><%= item.quantity %></td>
+        <td><%= item.subtotal %></td>
+      </tr>
+    <% end %>
+    <td></td><td></td><td></td>
+    <td><%= number_with_precision(Cart.find(@delivery.cart_id).total, :precision => 2) %>kr</td>
+  </tbody>
+</table>
+
+<h3>Fakturerings och leveransadress</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produkt</th>
+      <th>Antal</th>
+      <th>Pris</th>
+
+
 <%= form_for(@delivery) do |f| %>
   <% if @delivery.errors.any? %>
     <div id="error_explanation">
@@ -15,17 +50,17 @@
 
   <div class="field">
     <%= f.label :adress %>
-    <%= f.text_field :adress %>
+    <%= f.text_field :adress, :input_html => { :value => @delivery.adress } %>
   </div>
 
   <div class="field">
     <%= f.label :zip %>
-    <%= f.number_field :zip %>
+    <%= f.number_field :zip, :input_html => { :value => @delivery.zip } %>
   </div>
 
   <div class="field">
     <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :input_html => { :value => @delivery.city } %>
   </div>
 
   <div class="actions">
