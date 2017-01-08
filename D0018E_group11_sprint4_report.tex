@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  Sectioned Assignment
+%   
 % LaTeX Template
 % Version 1.0 (5/5/12)
 %
@@ -20,15 +20,15 @@
 
 \documentclass[paper=a4, fontsize=11pt]{report} % A4 paper and 11pt font size
 
-\usepackage[swedish, english]{babel} % Swedish and English language/hyphenation
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[swedish, english]{babel}            % swedish and english language/hyphenation
+\usepackage[t1]{fontenc}                        % use 8-bit encoding that has 256 glyphs
 \usepackage[a4paper]{geometry}
 \usepackage{hyperref}
 \usepackage[myheadings]{fullpage}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
-\usepackage[T1]{fontenc}
+\usepackage[t1]{fontenc}
 \usepackage[font=small, labelfont=bf]{caption}
 \usepackage{fourier}
 \usepackage[protrusion=true, expansion=true]{microtype}
@@ -62,9 +62,9 @@
 \title{
 	\normalfont \normalsize
 	\textsc{Luleå Tekniska Universitet} \\ [25pt] % Your university, school and/or department name(s)
-	\horrule{1pt} \\[0.4cm] % top horizontal rule
-	\huge Sprint 4 \\ % The assignment title
-	\horrule{1pt} \\[0.5cm] % bottom horizontal rule
+	\horrule{1pt} \\[0.4cm]                       % top horizontal rule
+	\huge Sprint 4 \\                             % The assignment title
+	\horrule{1pt} \\[0.5cm]                       % bottom horizontal rule
 }
 
 \author{Victor Persson,\\ Niklas Eliasson} % Your name
@@ -91,52 +91,52 @@ For educational purposes Ruby on Rails was chosen. \\
 Scrum planing was done at Trello.com and GitHub.com was used as VCS. \\
 
 
-\section*{User stories}
-\addcontentsline{toc}{section}{User stories}
+\section*{User roles}
+\addcontentsline{toc}{section}{User roles}
 Användare
 \begin{itemize}
-	Sectioned\item Butiksadministratör
-		Sectioned\begin{itemize}
-			Assignment\item r/w priser
-			Assignment\item r/w kampanjer
-			Assignment\item r/w lagerstatus
-			Assignment\item r/w kategorier
-			Assignment\item r leveransstatus
-			Assignment\item r kundinfo
-		Sectioned\end{itemize}
-	Sectioned\item Lagerarbetare
-		Sectioned\begin{itemize}
-			Assignment\item r/w lagerstatus
-			Assignment\item r/w leveransstatus
-			Assignment\item r kundinfo
-		Sectioned\end{itemize}
-	Sectioned\item Inloggad kund
-		Sectioned\begin{itemize}
-			Assignment\item r/w sin egen kontaktinformation
-			Assignment\item läsa sin egen orderhistorik
-			Assignment\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
-			Assignment\item lägga ordrar
-			Assignment\item ? Spara/skicka kundkorg
-		Sectioned\end{itemize}
+	\item Butiksadministratör
+		\begin{itemize}
+			\item r/w priser
+			\item r/w kampanjer
+			\item r/w lagerstatus
+			\item r/w kategorier
+			\item r leveransstatus
+			\item r kundinfo
+		\end{itemize}
+	\item Lagerarbetare
+		\begin{itemize}
+			\item r/w lagerstatus
+			\item r/w leveransstatus
+			\item r kundinfo
+		\end{itemize}
+	\item Inloggad kund
+		\begin{itemize}
+			\item r/w sin egen kontaktinformation
+			\item läsa sin egen orderhistorik
+			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
+			\item lägga ordrar
+			\item ? Spara/skicka kundkorg
+		\end{itemize}
 
 		See Figure \ref{fig:2} - \ref{fig:4}
 
 	\begin{figure}
-		Sectioned\includegraphics[scale=0.12]{artifacts/Lager.jpeg}
-		Sectioned\caption{}
-		Sectioned\label{fig:2}
+		\includegraphics[scale=0.12]{artifacts/Lager.jpeg}
+		\caption{}
+		\label{fig:2}
 	\end{figure}
 
 	\begin{figure}
-		Sectioned\includegraphics[scale=0.12]{artifacts/ButiksAdmin.jpeg}
-		Sectioned\caption{}
-		Sectioned\label{fig:3}
+		\includegraphics[scale=0.12]{artifacts/ButiksAdmin.jpeg}
+		\caption{}
+		\label{fig:3}
 	\end{figure}
 
 	\begin{figure}
-		Sectioned\includegraphics[scale=0.12]{artifacts/Admin.jpeg}
-		Sectioned\caption{}
-		Sectioned\label{fig:4}
+		\includegraphics[scale=0.12]{artifacts/Admin.jpeg}
+		\caption{}
+		\label{fig:4}
 	\end{figure}
 
 \section*{System architecture}
@@ -150,28 +150,28 @@ Användare
 \addcontentsline{toc}{section}{backlog}
 
 	\begin{tabular}{|l|l|l|l|l|}
-		Sectioned\hline
-		Sectioned \#  & Sprint 4                      & Priority & Time est. & Description \\ \hline
-		Sectioned 301 & Startsida                     & 100      & 2         &             \\ \hline
-		Sectioned 302 & Dynamisk meny från kategorier & 90       & 2         &             \\ \hline
-		Sectioned 304 & Produktsida                   & 110      & 4         &             \\ \hline
-		Sectioned 305 & Kundkorg                      & 80       & 8         &             \\ \hline
-		Sectioned 307 & Profilsida (kundkort)         & 45       & 2         &             \\ \hline
-		Sectioned 308 & Orderhistorik                 & 45       & 1         &             \\ \hline
-		Sectioned 309 & Kundinlogg                    & 50       & 2         &             \\ \hline
-		Sectioned 310 & Registrering                  & 60       & 4         &             \\ \hline
-		Sectioned 312 & kommentarer/betygsättning     & 70       & 8         &             \\ \hline
-		Sectioned 313 & Produktkategorier             & 75       & 2         &             \\ \hline
-		Sectioned 400 & Backendinloggning             & 25       & 2         &             \\ \hline
-		Sectioned 1   & Personnummer -/+ hantering    & 5        & 1         &             \\ \hline
+		\hline
+		 \#  & Sprint 4                      & Priority & Time est. & Description \\ \hline
+		 301 & Startsida                     & 100      & 2         &             \\ \hline
+		 302 & Dynamisk meny från kategorier & 90       & 2         &             \\ \hline
+		 304 & Produktsida                   & 110      & 4         &             \\ \hline
+		 305 & Kundkorg                      & 80       & 8         &             \\ \hline
+		 307 & Profilsida (kundkort)         & 45       & 2         &             \\ \hline
+		 308 & Orderhistorik                 & 45       & 1         &             \\ \hline
+		 309 & Kundinlogg                    & 50       & 2         &             \\ \hline
+		 310 & Registrering                  & 60       & 4         &             \\ \hline
+		 312 & kommentarer/betygsättning     & 70       & 8         &             \\ \hline
+		 313 & Produktkategorier             & 75       & 2         &             \\ \hline
+		 400 & Backendinloggning             & 25       & 2         &             \\ \hline
+		 1   & Personnummer -/+ hantering    & 5        & 1         &             \\ \hline
 	\end{tabular}
 
 	\begin{tabular}{|l|l|l|l|l|}
-		Sectioned \hline
-		Sectioned \#  & Left in backlog  & Priority & Time est. & Description \\ \hline
-		Sectioned 410 & Kampanjhantering & 10       & 3         &             \\ \hline
-		Sectioned 311 & Produktsökning   & 45       & 1         &             \\ \hline
-		Sectioned 306 & Betalsida        & 5        & 12        &             \\ \hline
+		 \hline
+		 \#  & Left in backlog  & Priority & Time est. & Description \\ \hline
+		 410 & Kampanjhantering & 10       & 3         &             \\ \hline
+		 311 & Produktsökning   & 45       & 1         &             \\ \hline
+		 306 & Betalsida        & 5        & 12        &             \\ \hline
 	\end{tabular}
 
 
@@ -184,9 +184,9 @@ Användare
 \addcontentsline{toc}{section}{Database schema}
 See Figure \ref{fig:6}
 \begin{figure}
-	Sectioned\includegraphics[scale=0.7]{artifacts/db_implemented_1_3.png}
-	Sectioned\caption{Database design.}
-	Sectioned\label{fig:6}
+	\includegraphics[scale=0.7]{artifacts/db_implemented_1_3.png}
+	\caption{Database design.}
+	\label{fig:6}
 \end{figure}
 
 \section*{Code}
