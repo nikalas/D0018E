@@ -19,8 +19,7 @@
 %------------------------------------------------------------------------
 
 \documentclass[paper=a4, fontsize=11pt]{report} % A4 paper and 11pt font size
-
-\usepackage[swedish, english]{babel}            % swedish and english language/hyphenation
+\usepackage[swedish, english]{babel}            % Swedish and English language/hyphenation
 \usepackage[t1]{fontenc}                        % use 8-bit encoding that has 256 glyphs
 \usepackage[a4paper]{geometry}
 \usepackage{hyperref}
@@ -44,21 +43,21 @@
 %TITLE SECTION
 %------------------------------------------------------------------------
 
-\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}       % Create horizontal rule command with 1 argument of height
 \onehalfspacing
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
 \usepackage{titlesec}
-
+%
 \pagestyle{fancy}
 \fancyhf{}
 \setlength\headheight{15pt}
 \fancyhead[L]{Niklas Eliasson, Victor Persson}
 \fancyhead[R]{Luleå Tekniska Universitet}
 \fancyfoot[C]{\thepage}
-
+%
 \begin{document}
-
+%
 \title{
 	\normalfont \normalsize
 	\textsc{Luleå Tekniska Universitet} \\ [25pt] % Your university, school and/or department name(s)
@@ -66,13 +65,13 @@
 	\huge Sprint 4 \\                             % The assignment title
 	\horrule{1pt} \\[0.5cm]                       % bottom horizontal rule
 }
-
-\author{Victor Persson,\\ Niklas Eliasson} % Your name
-
-\date{\normalsize\today} % Today's date or a custom date
-
-\maketitle % Print the title
-
+%
+\author{Victor Persson,\\ Niklas Eliason}             % Your name
+%
+\date{\normalsize\today}                              % Today's date or a custom date
+%
+\maketitle                                            % Print the title
+%
 \tableofcontents
 \thispagestyle{empty}
 \sectionfont{\scshape}
@@ -84,15 +83,43 @@
 
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
-We are working on a e-comerce site for selling patches and accesories such as
-belts and zippers for student overalls. It is intended to be dynamic with a
-fully functional content management system. \\
-For educational purposes Ruby on Rails was chosen. \\
-Scrum planing was done at Trello.com and GitHub.com was used as VCS. \\
+% TODO add refs for trello and github
+	We are working on a e-commerce site for selling patches and accessories such as
+	belts and zippers for student overalls. It is intended to be dynamic with a
+	fully functional content management system. \\
+	For educational purposes Ruby on Rails was chosen. \\
+	Scrum planing was done at Trello.com and GitHub.com was used as VCS. \\
+
+	% TODO replace todos with refs then simply vim vipJ to join all lines.
+	User stories was set up
+	% TODO: ref
+	 to define what functionality we wanted the site to have. From this we drafted a
+	database schema, finalized in
+	% TODO: ref
+	 . The user stories where then broken down into Scrum stories and tasks, given
+	importance and time estimates as can be seen in
+	% TODO: ref
+	 . Some basic test cases
+	% TODO: ref
+	were added.
 
 
 \section*{User roles}
 \addcontentsline{toc}{section}{User roles}
+
+% TODO: translate to Eng
+% TODO: add non logged-in users
+% TODO? change to table in following (should be easy with Vim-macro) form:
+%
+%  ---------------------------------
+% | Store owner                     |
+% |---------------------------------|
+% | Read | Write |             Item |
+% |---------------------------------|
+% |    x |     x |         Products |
+% |    x |       | Customer profile |
+%  ---------------------------------
+
 Användare
 \begin{itemize}
 	\item Butiksadministratör
@@ -101,6 +128,7 @@ Användare
 			\item r/w kampanjer
 			\item r/w lagerstatus
 			\item r/w kategorier
+			\item r/w reviews (for cleaning up spam)
 			\item r leveransstatus
 			\item r kundinfo
 		\end{itemize}
@@ -113,13 +141,15 @@ Användare
 	\item Inloggad kund
 		\begin{itemize}
 			\item r/w sin egen kontaktinformation
+			\item r/w own reviews
+			\item r other customers reviews
 			\item läsa sin egen orderhistorik
 			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
 			\item lägga ordrar
 			\item ? Spara/skicka kundkorg
 		\end{itemize}
 
-		See Figure \ref{fig:2} - \ref{fig:4}
+	See Figure \ref{fig:2} - \ref{fig:4}
 
 	\begin{figure}
 		\includegraphics[scale=0.12]{artifacts/Lager.jpeg}
@@ -141,13 +171,17 @@ Användare
 
 \section*{System architecture}
 \addcontentsline{toc}{section}{System architecture}
-	During development we run the system on Ruby on Rails (RoR) built in web server
-	Puma and sqlight3 for simplicity, but intend to move to a MariaDB database
-	and a NGINX webserver with Phusion Passenger for RoR. We host
+	During development we run the system on Ruby on Rails' (RoR) built in web server
+	Puma and SQLight3 for simplicity, but intend to move to a MariaDB database
+	and a NGINX web server with Phusion Passenger for RoR. We host
 	the servers ourselves because it seemed seemed fun, educational and fairly simple.
 
 \section*{Backlog}
 \addcontentsline{toc}{section}{backlog}
+
+% TODO: add backlogs for sprints 1-3 and the first planned backlog as well.
+%       Simply copy them from the old report versions.
+% TODO? Translate backlog items to Eng
 
 	\begin{tabular}{|l|l|l|l|l|}
 		\hline
@@ -191,19 +225,22 @@ See Figure \ref{fig:6}
 
 \section*{Code}
 \addcontentsline{toc}{section}{Code}
-All code is avalible at github.
+All code is available at github.
 \url{https://github.com/nikalas/D0018E-Databasteknik.git}
 
 \section*{Test case specifications}
 \addcontentsline{toc}{section}{Test case specifications}
 
-	Problem: Item out of stock? \
+% TODO? Did we define more testcases? 
+% TODO: Should include some unit tests.
+
+	Problem: Item out of stock? \\
 		A customer adds a product to the basket. If the product goes out of
 		stock before checkout, how is this handled?
 
-	Solution: \
+	Solution: \\
 		At checkout a check is made if the product is still in stock. If not
-		the custumer is brought back to the 'carts' page and asked to remove
+		the customer is brought back to the 'carts' page and asked to remove
 		the product that is no longer available and that the cart has to be
 		updated.
 
@@ -211,10 +248,12 @@ All code is avalible at github.
 \addcontentsline{toc}{section}{Limitations and improvements}
 
 	We decided to put off saving payment methods and/or information. Might
-	end up readding it to the backlog if it looks like we will have time
-	to spare. Non-registerd customers have also been put on hold for now.
+	end up re-adding it to the backlog if it looks like we will have time
+	to spare. Non-registered customers have also pretty much been put on hold for now.
 	Products search, sorting, sale campaigns, and uploading pictures
 	through the backend has also been put on hold, since we didn't have
 	time to fully implement them.
+
+%TODO: Insert screen shots of whatever Miguel wanted us to add.
 
 \end{document}
