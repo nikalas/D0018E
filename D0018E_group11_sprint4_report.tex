@@ -37,6 +37,8 @@
 \usepackage{float}
 \usepackage{lmodern}
 \usepackage[normalem]{ulem}
+% TODO why doesn't subcaption work
+\usepackage{subcaption}
 \useunder{\uline}{\ul}{}
 
 %------------------------------------------------------------------------
@@ -83,7 +85,6 @@
 
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
-% TODO add refs for trello and github
 	We are working on a e-commerce site for selling patches and accessories such as
 	belts and zippers for student overalls. It is intended to be dynamic with a
 	fully functional content management system. \\
@@ -98,7 +99,6 @@
 
 % TODO add section for methodology
 
-% TODO User stories - story boards / implementations
 \section*{User stories}
 \addcontentsline{toc}{section}{User stories}
 
@@ -111,12 +111,14 @@
 		\item On successful registration the user is greeted with a message and can now start using the site fully. Figure \ref{fig:register_done}
 	\end{enumerate}
 
+
 	\subsection*{Edit profile}
 	\addcontentsline{toc}{subsection}{Edit profile}
 	\begin{enumerate}
 		\item By pressing the "Profil" button in the menu the user can access his profile. User sees that his full profile isn't filled in, so he presses "Ändra" (change). Figure \ref{fig:profile}
 		\item This brings the user to the profile editing page, where he can fill in the rest of his information. Figure \ref{fig:edit_profile}
 	\end{enumerate}
+
 
 	\subsection*{Place order}
 	\addcontentsline{toc}{subsection}{Place order}
@@ -130,6 +132,7 @@
 		\item Upon completion the user is greeted with a success message and an order confirmation. Figure \ref{fig:order_confirmation}
 	\end{enumerate}
 
+
 	\subsection*{Adding a review}
 	\addcontentsline{toc}{subsection}{Adding a review}
 	\begin{enumerate}
@@ -140,7 +143,7 @@
 		\item If, in the future, the user would change his mind about the product he can go back and either change or remove the review. \ref{fig:comment_added}
 	\end{enumerate}
 
-	
+
 	\subsection*{Changing something as an admin}
 	\addcontentsline{toc}{subsection}{Changing something as an admin}
 	\begin{enumerate}
@@ -148,28 +151,7 @@
 		\item After signing in the admin is greeted with some changes in the interface for a more streamlined experience for changing things. Figure \ref{fig:admin}
 	\end{enumerate}
 
-	\begin{figure}[h]
-		\begin{subfigure}
-			\includegraphics[width=\textwidth]{artifacts/stories/1_start.png}
-			\caption{Greeting page of the web shop.}
-			\label{fig:start}
-		\end{subfigure}
 
-		\begin{subfigure}
-			\includegraphics[width=\textwidth]{artifacts/stories/2_login.png}
-			\caption{Login page}
-			\label{fig:login}
-		\end{subfigure}
-
-		\begin{subfigure}
-			\includegraphics[width=\textwidth]{artifacts/stories/3_register.png}
-			\caption{Register page}
-			\label{fig:register}
-		\end{subfigure}
-
-	\label{fig:signup}
-	\caption{User story - Signing up}
-	\end{figure}
 
 \section*{User roles}
 \addcontentsline{toc}{section}{User roles}
@@ -177,11 +159,10 @@
 % TODO: translate to Eng
 % TODO: make sure user roles are correct
 % TODO: add non logged-in users
-% TODO? change to table in following (should be easy with Vim-macro) form:
+% TODO? maybe change to table in following (should be easy with Vim-macro) form:
 %
+%  Store owner
 %  ---------------------------------
-% | Store owner                     |
-% |---------------------------------|
 % | Read | Write |             Item |
 % |---------------------------------|
 % |    x |     x |         Products |
@@ -214,7 +195,7 @@ Användare
 			\item läsa sin egen orderhistorik
 			\item läsa sortimentet (produkter, priser, kampanjer, lagerstatus)
 			\item lägga ordrar
-			\item ? Spara/skicka kundkorg
+			\item Spara/skicka kundkorg
 		\end{itemize}
 
 	See Figure \ref{fig:2} - \ref{fig:4}
@@ -254,12 +235,11 @@ Användare
 	smaller stories or if some stories needed to be combined. After that the
 	stories would be repriortized and re-estimated.
 
-	\nobrakespace{
-		These backlog items were dealt with during this (last) sprint.
-		Figure \ref{fig:trello_final} includes a snapshot of the scrum board
-		at the end of this sprint. \\
+	These backlog items were dealt with during this (last) sprint.
+	Figure \ref{fig:trello_final} includes a snapshot of the scrum board
+	at the end of this sprint. \\
+
 	\begin{tabular}{|l|l|l|l|}
-	\addcontentsline{lot}{Backlog}{Spint 4}
 		\hline
 		\#  & Sprint 4                      & Priority & Time est. \\ \hline
 		301 & Startsida                     & 100      & 2         \\ \hline
@@ -274,21 +254,18 @@ Användare
 		313 & Produktkategorier             & 75       & 2         \\ \hline
 		400 & Backendinloggning             & 25       & 2         \\ \hline
 		1   & Personnummer -/+ hantering    & 5        & 1         \\ \hline
-	\end{tabular}
-	} \\
+	\end{tabular} \\
 
 
-	\nobrakespace{
-		These stories were put on hold and eventually scrapped from the project. \\
+	These stories were put on hold and eventually scrapped from the project.
+
 	\begin{tabular}{|l|l|l|l|}
-	\addcontentsline{lot}{Backlog}{Left in backlog}
 		\hline
 		\#  & Left in backlog  & Priority & Time est. \\ \hline
 		410 & Kampanjhantering & 10       & 3         \\ \hline
 		311 & Produktsökning   & 45       & 1         \\ \hline
 		306 & Betalsida        & 5        & 12        \\ \hline
 	\end{tabular}
-	} \\
 
 	Planing is done at Trello.com
 	\url{https://trello.com/b/JxDCHBcm} \\
@@ -314,7 +291,7 @@ See Figure \ref{fig:db}
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{artifacts/db_implemented_1_3.png}
-	\caption{Database design.}
+	\caption{Database design. (not including reworked ShoppingCart)}
 	\label{fig:db}
 \end{figure}
 
@@ -335,7 +312,7 @@ All code is available at github.
 
 	Solution: \\
 		At checkout a check is made if the product is still in stock. If not
-		the customer is brought back to the 'carts' page and asked to remove
+		the customer is brought back to the "carts" page and asked to remove
 		the product that is no longer available and that the cart has to be
 		updated.
 
@@ -349,6 +326,97 @@ All code is available at github.
 	through the backend has also been put on hold, since we didn't have
 	time to fully implement them.
 
+%-------- User story Images -------
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/1_start.png}
+	\caption{Greeting page of the web shop.}
+	\label{fig:start}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/2_login.png}
+	\caption{Login page}
+	\label{fig:login}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/3_register.png}
+	\caption{Register page}
+	\label{fig:register}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/4_register_done.png}
+	\caption{Registration complete}
+	\label{fig:register_done}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/5_profile.png}
+	\caption{Profile page}
+	\label{fig:profile}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/6_edit_profile.png}
+	\caption{Edit profile}
+	\label{fig:edit_profile}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/7_products.png}
+	\caption{Category page}
+	\label{fig:products}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/8_product.png}
+	\caption{Product page}
+	\label{fig:product}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/9_cart.png}
+	\caption{Shopping cart}
+	\label{fig:cart}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/10_order.png}
+	\caption{Order page}
+	\label{fig:order}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/11_order_confirmation.png}
+	\caption{Order confirmation}
+	\label{fig:order_confirmation}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/12_orders.png}
+	\caption{Orders history}
+	\label{fig:orders}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/13_comments.png}
+	\caption{User reviews}
+	\label{fig:comments}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/14_comment_added.png}
+	\caption{Edit comment}
+	\label{fig:comment_added}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/stories/admin.png}
+	\caption{Admin interface}
+	\label{fig:admin}
+\end{figure}
 %TODO: Insert screen shots of whatever Miguel wanted us to add.
 
 \end{document}
