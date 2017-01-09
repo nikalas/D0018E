@@ -330,20 +330,34 @@ All code is available at github.
 \section*{Limitations and improvements}
 \addcontentsline{toc}{section}{Limitations and improvements}
 
-	We decided to put off saving payment methods and/or information. Might
-	end up re-adding it to the backlog if it looks like we will have time
-	to spare. Non-registered customers have also pretty much been put on hold for now.
+	We decided to put off saving payment methods and/or information. 
 	Products search, sorting, sale campaigns, and uploading pictures
 	through the backend has also been put on hold, since we didn't have
-	time to fully implement them. In a few places the internal quality is suffering and
-	some refactoring could most certainly benefit the code.
+	time to fully implement them. In a few places the internal quality is
+    suffering and some refactoring could most certainly benefit the code.
+    Our production server were initially planed to be a Nginx webserver with 
+    Phusion Passenger for RoR and a MariaDB database server. Nginx was later 
+    dropped in favor of Rails built in server Puma. This server does however 
+    have some problems, mostly related to updating the webpage, that could 
+    have been avoided if we had more experience with RoR in the beginning. 
 
 \section*{Challenges and problems}
 \addcontentsline{toc}{section}{Challenges and problems}
 
-	The greatest challenges were no doubt time estimates and scope-creep. As you learn more, you want to add more, risking not making the deadline and letting other features fall behind. Another problem we had was that RoR's ActiveRecord does a whole lot for you. This means that you can set everything up really good in the rails models, but the actual database isn't very well optimized.
-	Another problem we had was that even though there are some unit tests in place, it's easy to forget to do manual testing. When you're working on a deadline this makes quite some bugs slip through which resulted in us having to spend the entire last 24 hours before hand-in with testing and bugfixing. And there were a few (see figure \ref{fig:bugs}). We did manage to get them down from 28 to 6, most remaining being purely superficial though.
-	All in all thought we didn't really have any big problems. Probably because  we did a lot of structured planning going into the project.
+	The greatest challenges were no doubt time estimates and scope-creep. As
+    you learn more, you want to add more, risking not making the deadline and
+    letting other features fall behind. Another problem we had was that RoR's
+    ActiveRecord does a whole lot for you. This means that you can set
+    everything up really good in the rails models, but the actual database
+    isn't very well optimized.
+	Another problem we had was that even though there are some unit tests in
+    place, it's easy to forget to do manual testing. When you're working on a
+    deadline this makes quite some bugs slip through which resulted in us
+    having to spend the entire last 24 hours before hand-in with testing and
+    bugfixing. And there were a few (see figure \ref{fig:bugs}). We did manage
+    to get them down from 29 to 6, most remaining being purely superficial though.
+	All in all thought we didn't really have any big problems. Probably because
+    we did a lot of structured planning going into the project.
 
 \begin{figure}
 	\includegraphics{artifacts/bugs}
