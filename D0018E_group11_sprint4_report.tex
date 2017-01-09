@@ -90,27 +90,34 @@
 	For educational purposes Ruby on Rails was chosen. \\
 	Scrum planing was done at Trello.com and GitHub.com was used as VCS. \\
 
-	% TODO replace todos with refs then simply vim vipJ to join all lines.
-	User stories was set up
-	% TODO: ref
-	 to define what functionality we wanted the site to have. From this we drafted a
-	database schema, finalized in
-	% TODO: ref
-	 . The user stories where then broken down into Scrum stories and tasks, given
-	importance and time estimates as can be seen in
-	% TODO: ref
-	 . Some basic test cases
-	% TODO: ref
-	were added.
+	User stories was set up to define what functionality we wanted the site
+	to have. From this the database schema was defined. The user
+	stories were then broken down into Scrum stories and tasks, given importance
+	and time estimates. Some basic test cases were added.
 
-%TODO User stories - story boards / implementations
-%\section*{User stories}
-%\addcontentsline{toc}{section}{User stories}
+
+% TODO add section for methodology
+
+% TODO User stories - story boards / implementations
+\section*{User stories}
+\addcontentsline{toc}{section}{User stories}
+
+	\subsection*{Register an account}
+	\addcontentsline{toc}{User Stories}{Register}
+	
+	\begin{enumerate}
+		\item User arrives at the page. Figure \ref{fig:start}
+		\item An unregistered user can only browse the site if the user tries to use any functionality he will be taken to the login page which will let him register. Figure \ref{fig:login}
+		\item User provides minimal amount of info needed for an account. Figure \ref{fig:register}
+		\item On successful registration the user is greeted with a message and can now start using the site fully. Figure \ref{fig:register_done}
+	\end{enumerate}
+
 
 \section*{User roles}
 \addcontentsline{toc}{section}{User roles}
 
 % TODO: translate to Eng
+% TODO: make sure user roles are correct
 % TODO: add non logged-in users
 % TODO? change to table in following (should be easy with Vim-macro) form:
 %
@@ -176,54 +183,81 @@ Användare
 \addcontentsline{toc}{section}{System architecture}
 	During development we run the system on Ruby on Rails' (RoR) built in web server
 	Puma and SQLight3 for simplicity, but intend to move to a MariaDB database
-	and a NGINX web server with Phusion Passenger for RoR. We host
+	and a Nginx web server with Phusion Passenger for RoR. We host
 	the servers ourselves because it seemed seemed fun, educational and fairly simple.
 
 \section*{Backlog}
 \addcontentsline{toc}{section}{backlog}
 
-% TODO: add backlogs for sprints 1-3 and the first planned backlog as well.
-%       Simply copy them from the old report versions.
-% TODO? Translate backlog items to Eng? Feels unecessary much work, low prio
+	The backlog was made after diskussions after breaking down the user stories
+	into backlog stories, which were further broken down into tasks. They were
+	then given priorities and time estimates. We tried to have a sit down halfway
+	through every sprint to see if any stories needed to be broken down into
+	smaller stories or if some stories needed to be combined. After that the
+	stories would be repriortized and re-estimated.
 
-	\begin{tabular}{|l|l|l|l|l|}
+	\nobrakespace{
+		These backlog items were dealt with during this (last) sprint.
+		Figure \ref{trello_final} includes a snapshot of the scrum board
+		at the end of this sprint. \\
+	\begin{tabular}{|l|l|l|l|}
+	\addcontentsline{lot}{Backlog}{Spint 4}
 		\hline
-		\#  & Sprint 4                      & Priority & Time est. & Description \\ \hline
-		301 & Startsida                     & 100      & 2         &             \\ \hline
-		302 & Dynamisk meny från kategorier & 90       & 2         &             \\ \hline
-		304 & Produktsida                   & 110      & 4         &             \\ \hline
-		305 & Kundkorg                      & 80       & 8         &             \\ \hline
-		307 & Profilsida (kundkort)         & 45       & 2         &             \\ \hline
-		308 & Orderhistorik                 & 45       & 1         &             \\ \hline
-		309 & Kundinlogg                    & 50       & 2         &             \\ \hline
-		310 & Registrering                  & 60       & 4         &             \\ \hline
-		312 & kommentarer/betygsättning     & 70       & 8         &             \\ \hline
-		313 & Produktkategorier             & 75       & 2         &             \\ \hline
-		400 & Backendinloggning             & 25       & 2         &             \\ \hline
-		1   & Personnummer -/+ hantering    & 5        & 1         &             \\ \hline
+		\#  & Sprint 4                      & Priority & Time est. \\ \hline
+		301 & Startsida                     & 100      & 2         \\ \hline
+		302 & Dynamisk meny från kategorier & 90       & 2         \\ \hline
+		304 & Produktsida                   & 110      & 4         \\ \hline
+		305 & Kundkorg                      & 80       & 8         \\ \hline
+		307 & Profilsida (kundkort)         & 45       & 2         \\ \hline
+		308 & Orderhistorik                 & 45       & 1         \\ \hline
+		309 & Kundinlogg                    & 50       & 2         \\ \hline
+		310 & Registrering                  & 60       & 4         \\ \hline
+		312 & kommentarer/betygsättning     & 70       & 8         \\ \hline
+		313 & Produktkategorier             & 75       & 2         \\ \hline
+		400 & Backendinloggning             & 25       & 2         \\ \hline
+		1   & Personnummer -/+ hantering    & 5        & 1         \\ \hline
 	\end{tabular}
+	} \\
 
-	\begin{tabular}{|l|l|l|l|l|}
+
+	\nobrakespace{
+		These stories were put on hold and eventually scrapped from the project. \\
+	\begin{tabular}{|l|l|l|l|}
+	\addcontentsline{lot}{Backlog}{Left in backlog}
 		\hline
-		\#  & Left in backlog  & Priority & Time est. & Description \\ \hline
-		410 & Kampanjhantering & 10       & 3         &             \\ \hline
-		311 & Produktsökning   & 45       & 1         &             \\ \hline
-		306 & Betalsida        & 5        & 12        &             \\ \hline
+		\#  & Left in backlog  & Priority & Time est. \\ \hline
+		410 & Kampanjhantering & 10       & 3         \\ \hline
+		311 & Produktsökning   & 45       & 1         \\ \hline
+		306 & Betalsida        & 5        & 12        \\ \hline
 	\end{tabular}
-
+	} \\
 
 	Planing is done at Trello.com
-	\url{https://trello.com/b/JxDCHBcm}\
+	\url{https://trello.com/b/JxDCHBcm} \\
 	This is just a small section of the backlog. For history of all sprints and deeper
 	explanation of the backlog items, refer to Trello.
 
+	
+	\begin{figure}[h]
+		\includegraphics[width=\textwidth]{artifacts/trello_sprint1.png}
+		\caption{Screenshot of the scrum board going into the second sprint.}
+		\label{fig:trello_sprint1}
+	\end{figure}
+
+	\begin{figure}[h]
+		\includegraphics[width=\textwidth]{artifacts/trello_final.png}
+		\caption{Screenshot of the current state of the scrum board.}
+		\label{fig:trello_final}
+	\end{figure}
+
 \section*{Database schema}
 \addcontentsline{toc}{section}{Database schema}
-See Figure \ref{fig:6}
+See Figure \ref{fig:db}
+
 \begin{figure}
-	\includegraphics[scale=0.7]{artifacts/db_implemented_1_3.png}
+	\includegraphics[width=\textwidth]{artifacts/db_implemented_1_3.png}
 	\caption{Database design.}
-	\label{fig:6}
+	\label{fig:db}
 \end{figure}
 
 \section*{Code}
@@ -234,7 +268,7 @@ All code is available at github.
 \section*{Test case specifications}
 \addcontentsline{toc}{section}{Test case specifications}
 
-% TODO? Did we define more testcases?
+% TODO? Did we define more test cases?
 % TODO: Should include some unit tests.
 
 	Problem: Item out of stock? \\
