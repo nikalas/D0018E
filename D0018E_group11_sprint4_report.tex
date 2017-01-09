@@ -103,8 +103,7 @@
 \addcontentsline{toc}{section}{User stories}
 
 	\subsection*{Register an account}
-	\addcontentsline{toc}{User Stories}{Register}
-	
+	\addcontentsline{toc}{subsection}{Register}
 	\begin{enumerate}
 		\item User arrives at the page. Figure \ref{fig:start}
 		\item An unregistered user can only browse the site if the user tries to use any functionality he will be taken to the login page which will let him register. Figure \ref{fig:login}
@@ -112,6 +111,24 @@
 		\item On successful registration the user is greeted with a message and can now start using the site fully. Figure \ref{fig:register_done}
 	\end{enumerate}
 
+	\subsection*{Edit profile}
+	\addcontentsline{toc}{subsection}{Edit profile}
+	\begin{enumerate}
+		\item By pressing the "Profil" button in the menu the user can access his profile. User sees that his full profile isn't filled in, so he presses "Ändra" (change). Figure \ref{fig:profile}
+		\item This brings the user to the profile editing page, where he can fill in the rest of his information. Figure \ref{fig:edit_profile}
+	\end{enumerate}
+
+	\subsection*{Place order}
+	\addcontentsline{toc}{subsection}{Place order}
+	\begin{enumerate}
+		\item The user browses the categories and finds something he likes, in this case patches. He does not, however know what kind of patches he's interested in so he presses patches, which renders all products of the subcategories as well. Figure \ref{fig:products}
+		\item The user finds a product he likes and can either add it to his cart directly or click the product and be brought to the product page, containing more information.
+		\item In this case he wants to know a little more about the product. He's taken to the product page where he can read some more info, see the rating of the product or read reviews from other users. Figure \ref{fig:product}
+		\item After browsing for a while and adding some products it's time to check out. He clicks "Kundkorg" to review his cart. Figure \ref{fig:cart}
+		\item After checking that everything is correct he presses "Kassa" and is taken to the checkout
+		\item To place an order an address has to be given. Since this user has filled in his full profile information his address is sourced from the profile, but could be changes by the user if he wishes this order to be delivered somewhere else. \ref{fig:order}
+		\item Upon completion the user is greeted with a success message and an order confirmation. Figure \ref{fig:order_confirmation}
+	\end{enumerate}
 
 \section*{User roles}
 \addcontentsline{toc}{section}{User roles}
@@ -198,7 +215,7 @@ Användare
 
 	\nobrakespace{
 		These backlog items were dealt with during this (last) sprint.
-		Figure \ref{trello_final} includes a snapshot of the scrum board
+		Figure \ref{fig:trello_final} includes a snapshot of the scrum board
 		at the end of this sprint. \\
 	\begin{tabular}{|l|l|l|l|}
 	\addcontentsline{lot}{Backlog}{Spint 4}
@@ -237,7 +254,7 @@ Användare
 	This is just a small section of the backlog. For history of all sprints and deeper
 	explanation of the backlog items, refer to Trello.
 
-	
+
 	\begin{figure}[h]
 		\includegraphics[width=\textwidth]{artifacts/trello_sprint1.png}
 		\caption{Screenshot of the scrum board going into the second sprint.}
