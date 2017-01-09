@@ -354,6 +354,9 @@ All code is available at github.
     to get them down from 29 to 6, most remaining being purely superficial though.
 	All in all thought we didn't really have any big problems. Probably because
     we did a lot of structured planning going into the project.
+    A major bug we had was the possibility of placing another order with the a
+    previosly used shopping cart. This has been fixad as can be seen in figures
+    \ref{fig:bugfix1} - \ref{fig:bugfix5}
 
 \begin{figure}
 	\includegraphics{artifacts/bugs}
@@ -452,6 +455,38 @@ All code is available at github.
 	\caption{Admin interface}
 	\label{fig:admin}
 \end{figure}
-%TODO: Insert screen shots of whatever Miguel wanted us to add.
+
+%-------- Bugfix images -------
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/bugfix1.png}
+	\caption{Go to checkout}
+	\label{fig:bugfix1}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/bugfix2.png}
+	\caption{Complete order}
+	\label{fig:bugfix2}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/bugfix3.png}
+	\caption{Go to cart}
+	\label{fig:bugfix3}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/bugfix4.png}
+	\caption{It is empty because an new one was made after the order was placed}
+	\label{fig:bugfix4}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=0.9\paperwidth]{artifacts/bugfix5.png}
+	\caption{viewing the old cart from the products of the placed order does
+    not allow for another order to be placed}
+	\label{fig:bugfix5}
+\end{figure}
+
 
 \end{document}
